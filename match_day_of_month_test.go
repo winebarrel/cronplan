@@ -107,6 +107,22 @@ func TestMatchDayObMonth(t *testing.T) {
 			},
 		},
 		{
+			exp: "* * L-2 * ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 10, 28, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 29, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 10, 30, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 31, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2024, 2, 26, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2024, 2, 27, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2024, 2, 28, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2024, 2, 29, 1, 1, 0, 0, time.UTC), false},
+			},
+		},
+		{
 			exp: "* * 3W * ? *",
 			tests: []struct {
 				tm       time.Time
@@ -121,6 +137,28 @@ func TestMatchDayObMonth(t *testing.T) {
 				{time.Date(2022, 11, 3, 1, 1, 0, 0, time.UTC), true},
 				{time.Date(2022, 12, 2, 1, 1, 0, 0, time.UTC), true},
 				{time.Date(2022, 12, 3, 1, 1, 0, 0, time.UTC), false},
+			},
+		},
+		{
+			exp: "* * 1W * ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 10, 1, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 2, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 3, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2022, 10, 4, 0, 0, 0, 0, time.UTC), false},
+			},
+		},
+		{
+			exp: "* * 31W * ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2023, 2, 28, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2024, 2, 29, 0, 0, 0, 0, time.UTC), true},
 			},
 		},
 	}
