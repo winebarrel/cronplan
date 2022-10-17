@@ -350,7 +350,6 @@ func (v *Month) Capture(values []string) error {
 	r := regexp.MustCompile(`^(:?[1-9]\d*)$`)
 
 	if r.MatchString(s) {
-
 		n, _ := strconv.Atoi(s)
 
 		if n < 1 || 12 < n {
