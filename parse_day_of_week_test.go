@@ -24,6 +24,13 @@ func TestDayOfWeekNumber(t *testing.T) {
 	assert.Equal(wday(time.Sunday), cron.DayOfWeek.Exps[0].Wday)
 }
 
+func TestDayOfWeekNumberWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("* * ? * 01 *")
+	assert.NoError(err)
+	assert.Equal(wday(time.Sunday), cron.DayOfWeek.Exps[0].Wday)
+}
+
 func TestDayOfWeekNumberRange(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parse("* * ? * 1-7 *")

@@ -21,6 +21,13 @@ func TestMinutesNumber(t *testing.T) {
 	assert.Equal(minute(0), cron.Minute.Exps[0].Number)
 }
 
+func TestMinutesNumberWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("01 * * * ? *")
+	assert.NoError(err)
+	assert.Equal(minute(1), cron.Minute.Exps[0].Number)
+}
+
 func TestMinutesNumberRange(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parse("0-59 * * * ? *")

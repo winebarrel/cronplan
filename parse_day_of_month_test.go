@@ -21,6 +21,13 @@ func TestDayOfMonthNumber(t *testing.T) {
 	assert.Equal(day(1), cron.DayOfMonth.Exps[0].Number)
 }
 
+func TestDayOfMonthNumberWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("* * 01 * ? *")
+	assert.NoError(err)
+	assert.Equal(day(1), cron.DayOfMonth.Exps[0].Number)
+}
+
 func TestDayOfMonthNumberRange(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parse("* * 1-30 * ? *")
@@ -81,6 +88,13 @@ func TestDayOfMonthLast(t *testing.T) {
 func TestDayOfMonthLastOffset(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parse("* * L-3 * ? *")
+	assert.NoError(err)
+	assert.Equal(last(3), cron.DayOfMonth.Exps[0].Last)
+}
+
+func TestDayOfMonthLastOffsetWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("* * L-03 * ? *")
 	assert.NoError(err)
 	assert.Equal(last(3), cron.DayOfMonth.Exps[0].Last)
 }

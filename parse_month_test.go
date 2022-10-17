@@ -24,6 +24,13 @@ func TestMonthNumber(t *testing.T) {
 	assert.Equal(month(time.January), cron.Month.Exps[0].Month)
 }
 
+func TestMonthNumberWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parser.ParseString("", "* * * 010 ? *")
+	assert.NoError(err)
+	assert.Equal(month(time.October), cron.Month.Exps[0].Month)
+}
+
 func TestMonthNumberRange(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parser.ParseString("", "* * * 1-12 ? *")

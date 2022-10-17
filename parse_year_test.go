@@ -21,6 +21,13 @@ func TestYearNumber(t *testing.T) {
 	assert.Equal(year(2022), cron.Year.Exps[0].Number)
 }
 
+func TestYearNumberWithZero(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("* * * * ? 02022")
+	assert.NoError(err)
+	assert.Equal(year(2022), cron.Year.Exps[0].Number)
+}
+
 func TestYearNumberRange(t *testing.T) {
 	assert := assert.New(t)
 	cron, err := cronplan.Parse("* * * * ? 1970-2199")
