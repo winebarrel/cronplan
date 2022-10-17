@@ -99,6 +99,9 @@ func TestMatchHours(t *testing.T) {
 				{time.Date(2022, 10, 1, 8, 1, 0, 0, time.UTC), false},
 				{time.Date(2022, 10, 1, 9, 1, 0, 0, time.UTC), false},
 				{time.Date(2022, 10, 1, 10, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 10, 1, 11, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 12, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 13, 1, 0, 0, time.UTC), false},
 			},
 		},
 		{
