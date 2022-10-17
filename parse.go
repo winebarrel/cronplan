@@ -68,8 +68,8 @@ func (v *MinuteRange) String() string {
 
 type MinuteExp struct {
 	Wildcard bool         `( @"*"`
-	Range    *MinuteRange `| @@`
-	Number   *Minute      `| @Number )`
+	Range    *MinuteRange `  | @@`
+	Number   *Minute      `  | @Number )`
 	Bottom   *int         `( "/" @Number )?`
 }
 
@@ -147,8 +147,8 @@ func (v *HourRange) String() string {
 
 type HourExp struct {
 	Wildcard bool       `( @"*"`
-	Range    *HourRange `| @@`
-	Number   *Hour      `| @Number )`
+	Range    *HourRange `  | @@`
+	Number   *Hour      `  | @Number )`
 	Bottom   *int       `( "/" @Number )?`
 }
 
@@ -294,9 +294,9 @@ func (v *LastDayOfMonth) String() string {
 type DayOfMonthExp struct {
 	NearestWeekday *NearestWeekday  `( @Number "W" )`
 	Wildcard       bool             `| ( ( @"*"`
-	Range          *DayOfMonthRange `| @@`
-	Number         *DayOfMonth      `| @Number )`
-	Bottom         *int             `( "/" @Number )? )`
+	Range          *DayOfMonthRange `      | @@`
+	Number         *DayOfMonth      `      | @Number )`
+	Bottom         *int             `    ( "/" @Number )? )`
 	Last           *LastDayOfMonth  `| ( @"L" ( "-" @Number )? )`
 }
 
@@ -323,8 +323,8 @@ func (e *DayOfMonthExp) String() string {
 }
 
 type DayOfMonthField struct {
-	Exps []*DayOfMonthExp `( @@ ( "," @@ )*`
-	Any  bool             `| @"?" )`
+	Exps []*DayOfMonthExp `( @@ ( "," @@ )* )`
+	Any  bool             `| @"?"`
 }
 
 func (v *DayOfMonthField) String() string {
@@ -393,8 +393,8 @@ func (v *MonthRange) String() string {
 
 type MonthExp struct {
 	Wildcard bool        `( @"*"`
-	Range    *MonthRange `| @@`
-	Month    *Month      `| ( @Number | @Month ) )`
+	Range    *MonthRange `  | @@`
+	Month    *Month      `  | ( @Number | @Month ) )`
 	Bottom   *int        `( "/" @Number )?`
 }
 
@@ -508,10 +508,10 @@ func (v *LastDayOfWeek) String() string {
 type DayOfWeekExp struct {
 	Nth      *NthDayOfWeek  `@@`
 	Last     *LastDayOfWeek `| @"L"`
-	Wildcard bool           `| ( @"*"`
-	Range    *WeekdayRange  `| @@`
-	Wday     *Weekday       `| ( @Number | @Weekday ) )`
-	Bottom   *int           `( "/" @Number )?`
+	Wildcard bool           `| ( ( @"*"`
+	Range    *WeekdayRange  `      | @@`
+	Wday     *Weekday       `      | ( @Number | @Weekday ) )`
+	Bottom   *int           `    ( "/" @Number )? )`
 }
 
 func (e *DayOfWeekExp) String() string {
@@ -537,8 +537,8 @@ func (e *DayOfWeekExp) String() string {
 }
 
 type DayOfWeekField struct {
-	Exps []*DayOfWeekExp `( @@ ( "," @@ )*`
-	Any  bool            `| @"?" )`
+	Exps []*DayOfWeekExp `( @@ ( "," @@ )* )`
+	Any  bool            `| @"?"`
 }
 
 func (v *DayOfWeekField) String() string {
@@ -597,8 +597,8 @@ func (v *YearRange) String() string {
 
 type YearExp struct {
 	Wildcard bool       `( @"*"`
-	Range    *YearRange `| @@`
-	Number   *Year      `| @Number )`
+	Range    *YearRange `  | @@`
+	Number   *Year      `  | @Number )`
 	Bottom   *int       `( "/" @Number )?`
 }
 
