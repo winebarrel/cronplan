@@ -664,11 +664,11 @@ func Parse(exp string) (*Expression, error) {
 
 func (v *Expression) String() string {
 	return fmt.Sprintf("%s %s %s %s %s %s",
-		v.Minute.String(),
-		v.Hour.String(),
-		v.DayOfMonth.String(),
-		v.Month.String(),
-		v.DayOfWeek.String(),
-		v.Year.String(),
+		v.Minute,
+		v.Hour,
+		v.DayOfMonth,
+		v.Month,
+		v.DayOfWeek,
+		v.Year,
 	)
 }
