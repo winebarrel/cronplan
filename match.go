@@ -88,7 +88,7 @@ func (e *MinuteExp) Match(t time.Time) bool {
 		}
 	}
 
-	return false
+	panic("must not happen")
 }
 
 func (v *MinuteField) Match(t time.Time) bool {
@@ -183,7 +183,7 @@ func (e *HourExp) Match(t time.Time) bool {
 		}
 	}
 
-	return false
+	panic("must not happen")
 }
 
 func (v *HourField) Match(t time.Time) bool {
