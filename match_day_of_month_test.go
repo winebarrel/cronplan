@@ -81,6 +81,20 @@ func TestMatchDayObMonth(t *testing.T) {
 			},
 		},
 		{
+			exp: "* * 1/0 * ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 10, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 10, 2, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 3, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 4, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 5, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 11, 1, 1, 1, 0, 0, time.UTC), true},
+			},
+		},
+		{
 			exp: "* * 2/3 * ? *",
 			tests: []struct {
 				tm       time.Time
