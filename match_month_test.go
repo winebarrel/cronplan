@@ -112,6 +112,72 @@ func TestMatchMonth(t *testing.T) {
 				{time.Date(2023, 2, 1, 1, 1, 0, 0, time.UTC), true},
 			},
 		},
+		{
+			exp: "* * * FEB-JUN/2 ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 1, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 2, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 3, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 4, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 5, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2023, 6, 1, 1, 1, 0, 0, time.UTC), true},
+			},
+		},
+		{
+			exp: "* * * 2-6/2 ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 1, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 2, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 3, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 4, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 5, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2023, 6, 1, 1, 1, 0, 0, time.UTC), true},
+			},
+		},
+		{
+			exp: "* * * JUN-FEB ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 5, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2023, 6, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 7, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 8, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 9, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 12, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 1, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 2, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 3, 1, 1, 1, 0, 0, time.UTC), false},
+			},
+		},
+		{
+			exp: "* * * 6-2 ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 5, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2023, 6, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 7, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 8, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 9, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 12, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 1, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 2, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 3, 1, 1, 1, 0, 0, time.UTC), false},
+			},
+		},
 	}
 
 	for _, t := range tt {
