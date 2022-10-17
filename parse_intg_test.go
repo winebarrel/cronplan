@@ -600,7 +600,7 @@ func TestIntegration(t *testing.T) {
 		},
 		{
 			"10,44 14 ? 3 WED *",
-			"10,44 14 ? 3 WED *",
+			"10,44 14 ? MAR WED *",
 			&cronplan.Expression{
 				Minute: &cronplan.MinuteField{
 					Exps: []*cronplan.MinuteExp{
@@ -740,7 +740,7 @@ func TestIntegration(t *testing.T) {
 		},
 		{
 			"15 10 ? * 6#3 *",
-			"15 10 ? * 6#3 *",
+			"15 10 ? * FRI#3 *",
 			&cronplan.Expression{
 				Minute: &cronplan.MinuteField{
 					Exps: []*cronplan.MinuteExp{{
@@ -812,7 +812,7 @@ func TestIntegration(t *testing.T) {
 		},
 		{
 			"11 11 11 11 ? *",
-			"11 11 11 11 ? *",
+			"11 11 11 NOV ? *",
 			&cronplan.Expression{
 				Minute: &cronplan.MinuteField{
 					Exps: []*cronplan.MinuteExp{{
@@ -850,9 +850,6 @@ func TestIntegration(t *testing.T) {
 		cron, err := cronplan.Parse(t.exp)
 		assert.NoError(err)
 		assert.Equal(cron, t.ast, t.exp)
-
-		if err != nil {
-			assert.Equal(t.extStr, t.ast.String(), t.exp)
-		}
+		assert.Equal(t.extStr, t.ast.String(), t.exp)
 	}
 }

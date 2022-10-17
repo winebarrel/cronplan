@@ -84,6 +84,20 @@ func TestMatchYear(t *testing.T) {
 			},
 		},
 		{
+			exp: "* * * * ? 2024-2190/0",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2013, 10, 1, 1, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 10, 1, 1, 0, 0, 0, time.UTC), false},
+				{time.Date(2024, 10, 1, 1, 0, 0, 0, time.UTC), true},
+				{time.Date(2025, 10, 1, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2035, 10, 1, 1, 3, 0, 0, time.UTC), false},
+				{time.Date(2046, 10, 1, 1, 4, 0, 0, time.UTC), false},
+			},
+		},
+		{
 			exp: "* * * * ? 2022-2026/2",
 			tests: []struct {
 				tm       time.Time
