@@ -83,6 +83,21 @@ func TestMatchHours(t *testing.T) {
 			},
 		},
 		{
+			exp: "* 1/0 * * ? *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2022, 10, 1, 0, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2022, 10, 1, 2, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 3, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 4, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 1, 5, 1, 0, 0, time.UTC), false},
+				{time.Date(2022, 10, 2, 1, 1, 0, 0, time.UTC), true},
+			},
+		},
+		{
 			exp: "* 1-10/3 * * ? *",
 			tests: []struct {
 				tm       time.Time
