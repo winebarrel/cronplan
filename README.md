@@ -120,7 +120,7 @@ $ cronmatch -h -9 '0 1 * * ? *' '2022/10/20 10:00'
 '0 1 * * ? *' matches '2022/10/20 10:00' (offset: -9h)
 
 $ cronmatch '0 10 * * ? *' 'Oct 10, 2022, 10:10'
-'0 10 * * ? *' does not match 'Oct 10, 2022, 10:10' (offset: 0h)
+'0 10 * * ? *' does not match 'Oct 10, 2022, 10:10'
 ```
 
 cf. https://github.com/araddon/dateparse

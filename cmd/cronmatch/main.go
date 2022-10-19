@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/araddon/dateparse"
@@ -33,9 +35,23 @@ func main() {
 	m := cron.Match(t)
 
 	if m {
-		color.Green("'%s' matches '%s' (offset: %dh)\n", flags.expr, flags.t, flags.h)
+		var buf strings.Builder
+		fmt.Fprintf(&buf, "%s' matches '%s'", flags.expr, flags.t)
+
+		if flags.h != 0 {
+			fmt.Fprintf(&buf, " (offset: %dh)", flags.h)
+		}
+
+		color.Green(buf.String())
 	} else {
-		color.Red("'%s' does not match '%s' (offset: %dh)\n", flags.expr, flags.t, flags.h)
+		var buf strings.Builder
+		fmt.Fprintf(&buf, "%s' does not match '%s'", flags.expr, flags.t)
+
+		if flags.h != 0 {
+			fmt.Fprintf(&buf, " (offset: %dh)", flags.h)
+		}
+
+		color.Red(buf.String())
 		os.Exit(1)
 	}
 }
