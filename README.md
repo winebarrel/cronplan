@@ -117,10 +117,10 @@ Usage: cronmatch [OPTION] CRON_EXPR DATE
 
 ```
 $ cronmatch -h -9 "0 1 * * ? *" "2022/10/20 10:00"
-'2022/10/20 10:00' (offset: -9h) matches '0 1 * * ? *'
+'0 1 * * ? *' matches '2022/10/20 10:00' (offset: -9h)
 
 $ cronmatch  "0 10 * * ? *" "Oct 10, 2022, 10:10"
-'Oct 10, 2022, 10:10' (offset: 0h) does not match '0 10 * * ? *'
+'0 10 * * ? *' does not match 'Oct 10, 2022, 10:10' (offset: 0h)
 ```
 
 cf. https://github.com/araddon/dateparse

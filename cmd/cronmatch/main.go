@@ -33,9 +33,9 @@ func main() {
 	m := cron.Match(t)
 
 	if m {
-		color.Green("'%s' (offset: %dh) matches '%s'\n", flags.t, flags.h, flags.expr)
+		color.Green("'%s' matches '%s' (offset: %dh)\n", flags.expr, flags.t, flags.h)
 	} else {
-		color.Red("'%s' (offset: %dh) does not match '%s'\n", flags.t, flags.h, flags.expr)
+		color.Red("'%s' does not match '%s' (offset: %dh)\n", flags.expr, flags.t, flags.h)
 		os.Exit(1)
 	}
 }
