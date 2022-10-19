@@ -68,7 +68,7 @@ Usage: cronplan [OPTION] CRON_EXPR
 ```
 
 ```
-$ cronplan "*/10 10 ? * MON-FRI *"
+$ cronplan '*/10 10 ? * MON-FRI *'
 Tue, 11 Oct 2022 10:00:00
 Tue, 11 Oct 2022 10:10:00
 Tue, 11 Oct 2022 10:20:00
@@ -80,7 +80,7 @@ Wed, 12 Oct 2022 10:10:00
 Wed, 12 Oct 2022 10:20:00
 Wed, 12 Oct 2022 10:30:00
 
-$ cronplan -h -9 "*/10 10 ? * MON-FRI *"
+$ cronplan -h -9 '*/10 10 ? * MON-FRI *'
 Tue, 11 Oct 2022 01:00:00
 Tue, 11 Oct 2022 01:10:00
 Tue, 11 Oct 2022 01:20:00
@@ -116,10 +116,10 @@ Usage: cronmatch [OPTION] CRON_EXPR DATE
 ```
 
 ```
-$ cronmatch -h -9 "0 1 * * ? *" "2022/10/20 10:00"
+$ cronmatch -h -9 '0 1 * * ? *' '2022/10/20 10:00'
 '0 1 * * ? *' matches '2022/10/20 10:00' (offset: -9h)
 
-$ cronmatch  "0 10 * * ? *" "Oct 10, 2022, 10:10"
+$ cronmatch '0 10 * * ? *' 'Oct 10, 2022, 10:10'
 '0 10 * * ? *' does not match 'Oct 10, 2022, 10:10' (offset: 0h)
 ```
 
