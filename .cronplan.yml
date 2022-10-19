@@ -13,7 +13,7 @@ builds:
       - windows
       - darwin
 checksum:
-  name_template: "checksums.txt"
+  name_template: "cronplan-checksums.txt"
 brews:
   - tap:
       owner: winebarrel

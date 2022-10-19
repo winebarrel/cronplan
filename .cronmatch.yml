@@ -1,4 +1,6 @@
 project_name: cronmatch
+release:
+  mode: append
 before:
   hooks:
     - go mod tidy
@@ -13,7 +15,7 @@ builds:
       - windows
       - darwin
 checksum:
-  name_template: "checksums.txt"
+  name_template: "cronmatch-checksums.txt"
 brews:
   - tap:
       owner: winebarrel
