@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 
 	"github.com/araddon/dateparse"
 	"github.com/winebarrel/cronplan"
@@ -28,8 +29,7 @@ func main() {
 		log.Fatalf("failed to parse date: %s", err)
 	}
 
-	t = t.AddDate(0, 0, flags.h)
-
+	t = t.Add(time.Duration(flags.h) * time.Hour)
 	m := cron.Match(t)
 
 	if m {
