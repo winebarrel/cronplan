@@ -93,6 +93,36 @@ Wed, 12 Oct 2022 01:20:00
 Wed, 12 Oct 2022 01:30:00
 ```
 
+# cronmatch CLI
+
+CLI to check if datetime matches cron expression.
+
+## Installation
+
+```
+brew install winebarrel/cronplan/cronmatch
+```
+
+## Usage
+
+```
+Usage: cronmatch [OPTION] CRON_EXPR DATE
+  -h int
+    	hour to add
+  -version
+    	print version and exit
+```
+
+```
+$ cronmatch -h -9 "0 1 * * ? *" "2022/10/20 10:00"
+'2022/10/20 10:00' (offset: -9h) does not match '0 1 * * ? *'
+
+$ cronmatch  "0 10 * * ? *" "Oct 10, 2022, 10:10"
+'Oct 10, 2022, 10:10' (offset: 0h) does not match '0 10 * * ? *'
+```
+
+cf. https://github.com/araddon/dateparse
+
 # Related Links
 
 * [Schedule Expressions for Rules - Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
