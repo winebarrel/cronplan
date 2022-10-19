@@ -1,12 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"time"
 
 	"github.com/araddon/dateparse"
+	"github.com/fatih/color"
 	"github.com/winebarrel/cronplan"
 )
 
@@ -33,9 +33,9 @@ func main() {
 	m := cron.Match(t)
 
 	if m {
-		fmt.Printf("'%s' (offset: %dh) matches '%s'\n", flags.t, flags.h, flags.expr)
+		color.Green("'%s' (offset: %dh) matches '%s'\n", flags.t, flags.h, flags.expr)
 	} else {
-		fmt.Printf("'%s' (offset: %dh) does not match '%s'\n", flags.t, flags.h, flags.expr)
+		color.Red("'%s' (offset: %dh) does not match '%s'\n", flags.t, flags.h, flags.expr)
 		os.Exit(1)
 	}
 }

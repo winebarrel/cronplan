@@ -8,6 +8,13 @@ require (
 )
 
 require (
+	github.com/fatih/color v1.13.0
+	github.com/mattn/go-colorable v0.1.9 // indirect
+	github.com/mattn/go-isatty v0.0.16
+	golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab // indirect
+)
+
+require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect

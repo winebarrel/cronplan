@@ -7,6 +7,9 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/fatih/color"
+	"github.com/mattn/go-isatty"
 )
 
 var (
@@ -33,6 +36,7 @@ func init() {
 func parseFlags() *flags {
 	flags := &flags{}
 	flag.IntVar(&flags.h, "h", 0, "hour to add")
+	var noColor = flag.Bool("no-color", !isatty.IsTerminal(os.Stdout.Fd()), "disable color output")
 	showVersion := flag.Bool("version", false, "print version and exit")
 	flag.Parse()
 
@@ -52,6 +56,7 @@ func parseFlags() *flags {
 
 	flags.expr = strings.TrimSpace(args[0])
 	flags.t = strings.TrimSpace(args[1])
+	color.NoColor = *noColor
 
 	return flags
 }
