@@ -109,6 +109,8 @@ brew install winebarrel/cronplan/cronmatch
 Usage: cronmatch [OPTION] CRON_EXPR DATE
   -h int
     	hour to add
+  -no-color
+    	disable color output
   -version
     	print version and exit
 ```
