@@ -21,6 +21,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GORELEASER_GITHUB_TOKEN }}
   cronmatch:
     runs-on: ubuntu-latest
+    needs:
+      - cronplan
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v2
