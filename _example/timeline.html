@@ -6,7 +6,9 @@
 
   function addRow(rows, name, expr, t)
   {
-    rows.push([name + ' (' + expr + ')', t, t])
+    var head = name + ' | ' + expr;
+    
+    rows.push([head, t, t])
   }
 
   function drawChart()

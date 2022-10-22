@@ -6,7 +6,13 @@
 
   function addRow(rows, name, expr, t)
   {
-    rows.push([name + ' (' + expr + ')', t, t])
+    var head = name + ' | ' + expr;
+    {{ if gt .offset 0 }}
+    head += ' +{{ .offset }}h';
+    {{ else if lt .offset 0 }}
+    head += ' {{ .offset }}h';
+    {{ end }}
+    rows.push([head, t, t])
   }
 
   function drawChart()
@@ -21,7 +27,7 @@
 
     var rows = [];
 
-    {{ range $name, $row := . }}
+    {{ range $name, $row := .schedule }}
       {{ range $_, $t := $row.Times }}
     addRow(rows, '{{ $name | js }}', '{{ $row.Expr | js }}', new Date({{ $t.Year }}, {{ $t.Month | monthn }}, {{ $t.Day }}, {{ $t.Hour }}, {{ $t.Minute }}));
       {{- end }}

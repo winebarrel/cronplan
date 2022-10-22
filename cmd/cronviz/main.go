@@ -93,6 +93,18 @@ func main() {
 			log.Fatalf("failed to parse cron expr: %s/%s: %s", name, expr, err)
 		}
 
+		ts := cron.Between(from, to)
+
+		if flags.h != 0 {
+			newts := make([]time.Time, 0, len(ts))
+
+			for _, t := range ts {
+				newts = append(newts, t.Add(time.Duration(flags.h)*time.Hour))
+			}
+
+			ts = newts
+		}
+
 		schedule[name] = &Row{
 			Expr:  expr,
 			Times: cron.Between(from, to),
@@ -107,9 +119,15 @@ func main() {
 		"monthn": func(m time.Month) int {
 			return int(m)
 		},
+		"fmtname": func(name string, expr string, h int) string {
+			return ""
+		},
 	}).Parse(timelineTmpl))
 
-	err = t.Execute(os.Stdout, schedule)
+	err = t.Execute(os.Stdout, map[string]interface{}{
+		"schedule": schedule,
+		"offset":   flags.h,
+	})
 
 	if err != nil {
 		log.Fatalf("failed to execute template: %s", err)
