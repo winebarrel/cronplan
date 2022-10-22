@@ -34,7 +34,14 @@
     {{- end }}
 
     dataTable.addRows(rows);
-    chart.draw(dataTable);
+
+    var options = {
+      hAxis: {
+        format: 'H:mm\nEE, d'
+      }
+    };
+
+    chart.draw(dataTable, options);
   }
 </script>
 

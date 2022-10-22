@@ -82,7 +82,14 @@
     addRow(rows, 'batch3', '15,45 */3 * * ? *', new Date(2022, 10, 22, 21, 45));
 
     dataTable.addRows(rows);
-    chart.draw(dataTable);
+
+    var options = {
+      hAxis: {
+        format: 'H:mm\nEE, d'
+      }
+    };
+
+    chart.draw(dataTable, options);
   }
 </script>
 
