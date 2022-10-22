@@ -107,7 +107,7 @@ func main() {
 
 		schedule[name] = &Row{
 			Expr:  expr,
-			Times: cron.Between(from, to),
+			Times: ts,
 		}
 	}
 
