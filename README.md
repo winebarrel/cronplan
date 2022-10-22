@@ -135,3 +135,47 @@ cf. https://github.com/araddon/dateparse
 
 * [Schedule Expressions for Rules - Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 * [cronplan.in](http://cronplan.in/)
+
+# cronviz CLI
+
+CLI to visualize cron schedule.
+
+inspired by [cronv](https://github.com/takumakanari/cronv), [aws-cronv](https://www.npmjs.com/package/aws-cronv).
+
+## Installation
+
+```
+brew install winebarrel/cronplan/cronviz
+```
+
+## Usage
+
+```
+Usage: cronmatch [OPTION] CRON_EXPR DATE
+Usage: cronviz [OPTION] CRON_EXPR
+  -f string
+    	from date (default current date)
+  -h int
+    	hour to add
+  -p string
+    	period (default "1d")
+  -version
+    	print version and exit
+```
+
+```
+$ cat cron.txt
+batch1  0 * * * ? *
+batch2  30 */2 * * ? *
+batch3  15,45 */3 * * ? *
+
+$ cronviz cron.txt > output.html
+$ open output.html
+```
+
+cf. https://raw.githack.com/winebarrel/cronplan/main/_example/timeline.html
+
+# Related Links
+
+* [Schedule Expressions for Rules - Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+* [cronplan.in](http://cronplan.in/)
