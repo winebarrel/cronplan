@@ -36,7 +36,7 @@ func main() {
 
 	if m {
 		var buf strings.Builder
-		fmt.Fprintf(&buf, "%s' matches '%s'", flags.expr, flags.t)
+		fmt.Fprintf(&buf, "'%s' matches '%s'", flags.expr, flags.t)
 
 		if flags.h != 0 {
 			fmt.Fprintf(&buf, " (offset: %dh)", flags.h)
@@ -45,7 +45,7 @@ func main() {
 		color.Green(buf.String())
 	} else {
 		var buf strings.Builder
-		fmt.Fprintf(&buf, "%s' does not match '%s'", flags.expr, flags.t)
+		fmt.Fprintf(&buf, "'%s' does not match '%s'", flags.expr, flags.t)
 
 		if flags.h != 0 {
 			fmt.Fprintf(&buf, " (offset: %dh)", flags.h)
