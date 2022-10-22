@@ -22,7 +22,7 @@ func main() {
 	cron, err := cronplan.Parse(flags.expr)
 
 	if err != nil {
-		log.Fatalf("failed to cron expr: %s", err)
+		log.Fatalf("failed to parse cron expr: %s", err)
 	}
 
 	t, err := dateparse.ParseAny(flags.t)

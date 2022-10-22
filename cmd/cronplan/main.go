@@ -17,7 +17,7 @@ func main() {
 	cron, err := cronplan.Parse(flags.expr)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("failed to parse cron expr: %s", err)
 	}
 
 	triggers := cron.NextN(time.Now(), flags.n)

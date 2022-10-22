@@ -5,6 +5,7 @@ all: vet test build
 build:
 	go build ./cmd/cronplan
 	go build ./cmd/cronmatch
+	go build ./cmd/cronviz
 
 .PHONY: vet
 vet:
@@ -20,4 +21,6 @@ test:
 
 .PHONY: clean
 clean:
-	rm -f cronplan cronplan.exe cronmatch cronmatch.exe
+	rm -f cronplan cronplan.exe
+	rm -f cronmatch cronmatch.exe
+	rm -f cronviz cronviz.exe

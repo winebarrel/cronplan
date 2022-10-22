@@ -7,6 +7,8 @@ require (
 	github.com/stretchr/testify v1.8.0
 )
 
+require github.com/k1LoW/duration v1.2.0
+
 require (
 	github.com/fatih/color v1.13.0
 	github.com/mattn/go-colorable v0.1.9 // indirect
