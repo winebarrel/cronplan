@@ -138,6 +138,35 @@ func TestNextN_10(t *testing.T) {
 	)
 }
 
+func TestNextN_TZ(t *testing.T) {
+	jst, err := time.LoadLocation("Asia/Tokyo")
+
+	if err != nil {
+		panic(err)
+	}
+
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("*/5 * * * ? *")
+	assert.NoError(err)
+
+	schedule := cron.NextN(time.Date(2022, 10, 10, 0, 0, 0, 0, jst), 10)
+	assert.Equal(
+		[]time.Time{
+			time.Date(2022, time.October, 10, 0, 0, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 5, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 10, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 15, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 20, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 25, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 30, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 35, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 40, 0, 0, jst),
+			time.Date(2022, time.October, 10, 0, 45, 0, 0, jst),
+		},
+		schedule,
+	)
+}
+
 func TestNextN_3(t *testing.T) {
 	assert := assert.New(t)
 
