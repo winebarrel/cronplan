@@ -151,7 +151,6 @@ brew install winebarrel/cronplan/cronviz
 ## Usage
 
 ```
-Usage: cronmatch [OPTION] CRON_EXPR DATE
 Usage: cronviz [OPTION] CRON_EXPR
   -f string
     	from date (default current date)
