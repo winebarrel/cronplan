@@ -10,7 +10,7 @@
     {{ if gt .offset 0 }}
     head += ' +{{ .offset }}h';
     {{ else if lt .offset 0 }}
-    head += '{{ .offset }}h';
+    head += ' {{ .offset }}h';
     {{ end }}
     rows.push([head, t, t])
   }
