@@ -131,11 +131,6 @@ $ cronmatch '0 10 * * ? *' 'Oct 10, 2022, 10:10'
 
 cf. https://github.com/araddon/dateparse
 
-# Related Links
-
-* [Schedule Expressions for Rules - Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
-* [cronplan.in](http://cronplan.in/)
-
 # cronviz CLI
 
 CLI to visualize cron schedule.
