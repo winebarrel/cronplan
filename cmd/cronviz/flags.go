@@ -23,7 +23,7 @@ func init() {
 	cmdLine := flag.NewFlagSet(filepath.Base(os.Args[0]), flag.ExitOnError)
 
 	cmdLine.Usage = func() {
-		fmt.Fprintf(cmdLine.Output(), "Usage: %s [OPTION] CRON_EXPR\n", cmdLine.Name())
+		fmt.Fprintf(cmdLine.Output(), "Usage: %s [OPTION] [FILE]\n", cmdLine.Name())
 		cmdLine.PrintDefaults()
 	}
 
