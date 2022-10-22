@@ -99,11 +99,16 @@ func main() {
 		}
 	}
 
+	if len(schedule) == 0 {
+		log.Fatal("input is empty")
+	}
+
 	t := template.Must(template.New("timeline.html.tmpl").Funcs(map[string]interface{}{
 		"monthn": func(m time.Month) int {
 			return int(m)
 		},
 	}).Parse(timelineTmpl))
+
 	err = t.Execute(os.Stdout, schedule)
 
 	if err != nil {
