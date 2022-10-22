@@ -15,6 +15,22 @@ func (v *Expression) Next(from time.Time) time.Time {
 }
 
 func (v *Expression) NextN(from time.Time, n int) []time.Time {
+	return v.next0(from, time.Time{}, n)
+}
+
+func (v *Expression) Between(from time.Time, to time.Time) []time.Time {
+	return v.next0(from, to, -1)
+}
+
+func (v *Expression) next0(from time.Time, to time.Time, n int) []time.Time {
+	if to.IsZero() && n < 1 {
+		return []time.Time{}
+	}
+
+	if !to.IsZero() && (from.Equal(to) || from.After(to)) {
+		return []time.Time{}
+	}
+
 	years := v.candidateYears(from)
 
 	if len(years) == 0 {
@@ -83,9 +99,15 @@ YEAR:
 							continue
 						}
 
+						tm := time.Date(year, time.Month(month), day, hour, minute, 0, 0, from.Location())
+
+						if !to.IsZero() && tm.After(to) {
+							break YEAR
+						}
+
 						schedule = append(schedule, time.Date(year, time.Month(month), day, hour, minute, 0, 0, from.Location()))
 
-						if len(schedule) >= n {
+						if to.IsZero() && len(schedule) >= n {
 							break YEAR
 						}
 					}

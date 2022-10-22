@@ -257,3 +257,11 @@ func TestNextN_3(t *testing.T) {
 		assert.Equal(t.expected, next, t)
 	}
 }
+
+func TestNextN_0(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("*/5 * * * ? *")
+	assert.NoError(err)
+	schedule := cron.NextN(time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC), 0)
+	assert.Equal([]time.Time{}, schedule)
+}
