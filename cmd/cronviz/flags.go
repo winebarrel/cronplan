@@ -64,8 +64,3 @@ func printVersionAndExit() {
 	fmt.Fprintln(flag.CommandLine.Output(), v)
 	os.Exit(0)
 }
-
-func printUsageAndExit() {
-	flag.CommandLine.Usage()
-	os.Exit(0)
-}
