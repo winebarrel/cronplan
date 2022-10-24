@@ -7,7 +7,7 @@
   function addRow(rows, name, expr, t)
   {
     var head = name + ' | ' + expr;
-    
+
     rows.push([head, t, t])
   }
 
@@ -23,8 +23,8 @@
 
     var rows = [];
 
-    
-      
+
+
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 22, 0, 0));
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 22, 1, 0));
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 22, 2, 0));
@@ -50,7 +50,7 @@
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 22, 22, 0));
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 22, 23, 0));
     addRow(rows, 'batch1', '0 * * * ? *', new Date(2022, 10, 23, 0, 0));
-      
+
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 0, 30));
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 2, 30));
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 4, 30));
@@ -63,7 +63,7 @@
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 18, 30));
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 20, 30));
     addRow(rows, 'batch2', '30 */2 * * ? *', new Date(2022, 10, 22, 22, 30));
-      
+
     addRow(rows, 'batch3', '15,45 */3 * * ? *', new Date(2022, 10, 22, 0, 15));
     addRow(rows, 'batch3', '15,45 */3 * * ? *', new Date(2022, 10, 22, 0, 45));
     addRow(rows, 'batch3', '15,45 */3 * * ? *', new Date(2022, 10, 22, 3, 15));
@@ -96,4 +96,4 @@
   }
 </script>
 
-<div id="timeline"></div>
+<div id="timeline" style="height: 100%;"></div>
