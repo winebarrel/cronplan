@@ -44,6 +44,12 @@ func ListHour(start int, end int) ([]int, error) {
 }
 
 func ListDayOfMonth(t time.Time, start int, end int) ([]int, error) {
+	lom := LastOfMonth(t)
+
+	if end > lom {
+		end = lom
+	}
+
 	return List(start, end, 1, LastOfMonth(t))
 }
 
