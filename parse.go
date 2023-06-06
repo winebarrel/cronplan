@@ -9,14 +9,14 @@ import (
 
 	"github.com/alecthomas/participle/v2"
 	"github.com/alecthomas/participle/v2/lexer"
-	"github.com/winebarrel/cronplan/utils"
+	"github.com/winebarrel/cronplan/internal/util"
 )
 
 var (
 	cronLexer = lexer.MustSimple([]lexer.SimpleRule{
 		{`Number`, `\d+`},
-		{`Month`, `(?i)(?:` + strings.Join(utils.ShortMonthNames, "|") + `)`},
-		{`Weekday`, `(?i)(?:` + strings.Join(utils.ShortWeekdayNames, "|") + `)`},
+		{`Month`, `(?i)(?:` + strings.Join(util.ShortMonthNames, "|") + `)`},
+		{`Weekday`, `(?i)(?:` + strings.Join(util.ShortWeekdayNames, "|") + `)`},
 		{`Symbol`, `[,\-\*\?/LW#]`},
 		{`SP`, `\s+`},
 	})
@@ -359,7 +359,7 @@ func (v *Month) Capture(values []string) error {
 
 		*v = Month(n)
 	} else {
-		month, err := utils.CastMonth(s)
+		month, err := util.CastMonth(s)
 
 		if err != nil {
 			return err
@@ -380,7 +380,7 @@ func (v *Month) Month() time.Month {
 }
 
 func (v *Month) String() string {
-	return utils.ShortMonthNames[v.Int()-1]
+	return util.ShortMonthNames[v.Int()-1]
 }
 
 type MonthRange struct {
@@ -448,7 +448,7 @@ func (v *Weekday) Capture(values []string) error {
 
 		*v = Weekday(n - 1)
 	} else {
-		wday, err := utils.CastWeekday(s)
+		wday, err := util.CastWeekday(s)
 
 		if err != nil {
 			return err
@@ -469,7 +469,7 @@ func (v *Weekday) Weekday() time.Weekday {
 }
 
 func (v *Weekday) String() string {
-	return utils.ShortWeekdayNames[v.Int()]
+	return util.ShortWeekdayNames[v.Int()]
 }
 
 type WeekdayRange struct {

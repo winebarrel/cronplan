@@ -1,11 +1,11 @@
-package utils_test
+package util_test
 
 import (
 	"testing"
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/winebarrel/cronplan/utils"
+	"github.com/winebarrel/cronplan/internal/util"
 )
 
 func TestList(t *testing.T) {
@@ -29,7 +29,7 @@ func TestList(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.List(t.start, t.end, t.origin, t.max)
+		actual, err := util.List(t.start, t.end, t.origin, t.max)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -52,7 +52,7 @@ func TestListError(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		_, err := utils.List(t.start, t.end, t.origin, t.max)
+		_, err := util.List(t.start, t.end, t.origin, t.max)
 		assert.EqualError(err, t.expected)
 	}
 }
@@ -72,7 +72,7 @@ func TestListMinute(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListMinute(t.start, t.end)
+		actual, err := util.ListMinute(t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -93,7 +93,7 @@ func TestListHour(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListHour(t.start, t.end)
+		actual, err := util.ListHour(t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -120,7 +120,7 @@ func TestListDayOfMonth(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListDayOfMonth(t.tm, t.start, t.end)
+		actual, err := util.ListDayOfMonth(t.tm, t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -141,7 +141,7 @@ func TestListMonth(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListMonth(t.start, t.end)
+		actual, err := util.ListMonth(t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -164,7 +164,7 @@ func TestListWeekday(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListWeekday(t.start, t.end)
+		actual, err := util.ListWeekday(t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}
@@ -185,7 +185,7 @@ func TestLisYear(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.ListYear(t.start, t.end)
+		actual, err := util.ListYear(t.start, t.end)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t)
 	}

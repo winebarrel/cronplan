@@ -1,4 +1,4 @@
-package utils_test
+package util_test
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/winebarrel/cronplan/utils"
+	"github.com/winebarrel/cronplan/internal/util"
 )
 
 func TestCastWeekday(t *testing.T) {
@@ -26,7 +26,7 @@ func TestCastWeekday(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.CastWeekday(t.wday)
+		actual, err := util.CastWeekday(t.wday)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t.wday)
 	}
@@ -34,7 +34,7 @@ func TestCastWeekday(t *testing.T) {
 
 func TestCastWeekdayError(t *testing.T) {
 	assert := assert.New(t)
-	_, err := utils.CastWeekday("xxx")
+	_, err := util.CastWeekday("xxx")
 	assert.EqualError(err, "cannot convert to weekday from xxx")
 }
 
@@ -60,7 +60,7 @@ func TestCastMonth(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		actual, err := utils.CastMonth(t.mon)
+		actual, err := util.CastMonth(t.mon)
 		assert.NoError(err)
 		assert.Equal(t.expected, actual, t.mon)
 	}
@@ -68,7 +68,7 @@ func TestCastMonth(t *testing.T) {
 
 func TestCastMonthError(t *testing.T) {
 	assert := assert.New(t)
-	_, err := utils.CastMonth("xxx")
+	_, err := util.CastMonth("xxx")
 	assert.EqualError(err, "cannot convert to month from xxx")
 }
 
@@ -106,7 +106,7 @@ func TestLastOfMonth(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		assert.Equal(t.expected, utils.LastOfMonth(t.tm), t.tm)
+		assert.Equal(t.expected, util.LastOfMonth(t.tm), t.tm)
 	}
 }
 
@@ -163,7 +163,7 @@ func TestNearestWeekday(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		assert.Equal(t.expected, utils.NearestWeekday(t.tm, t.day), fmt.Sprintf("%s %v", t.tm, t))
+		assert.Equal(t.expected, util.NearestWeekday(t.tm, t.day), fmt.Sprintf("%s %v", t.tm, t))
 	}
 }
 
@@ -242,6 +242,6 @@ func TestNthDayOfWeek(t *testing.T) {
 	}
 
 	for _, t := range tt {
-		assert.Equal(t.expected, utils.NthDayOfWeek(t.tm, t.w, t.nth), fmt.Sprintf("%s %v", t.tm, t))
+		assert.Equal(t.expected, util.NthDayOfWeek(t.tm, t.w, t.nth), fmt.Sprintf("%s %v", t.tm, t))
 	}
 }
