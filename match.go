@@ -3,7 +3,7 @@ package cronplan
 import (
 	"time"
 
-	"github.com/winebarrel/cronplan/utils"
+	"github.com/winebarrel/cronplan/internal/util"
 )
 
 // minute =====================================================================
@@ -14,7 +14,7 @@ func (v *Minute) Match(t time.Time) bool {
 
 func (v *MinuteRange) Match(t time.Time) bool {
 	minute := t.Minute()
-	list, err := utils.ListMinute(v.Start.Int(), v.End.Int())
+	list, err := util.ListMinute(v.Start.Int(), v.End.Int())
 
 	if err != nil {
 		panic(err)
@@ -46,7 +46,7 @@ func (e *MinuteExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListMinute(start, end)
+			list, err := util.ListMinute(start, end)
 
 			if err != nil {
 				panic(err)
@@ -109,7 +109,7 @@ func (v *Hour) Match(t time.Time) bool {
 
 func (v *HourRange) Match(t time.Time) bool {
 	hour := t.Hour()
-	list, err := utils.ListHour(v.Start.Int(), v.End.Int())
+	list, err := util.ListHour(v.Start.Int(), v.End.Int())
 
 	if err != nil {
 		panic(err)
@@ -141,7 +141,7 @@ func (e *HourExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListMinute(start, end)
+			list, err := util.ListMinute(start, end)
 
 			if err != nil {
 				panic(err)
@@ -204,7 +204,7 @@ func (v *DayOfMonth) Match(t time.Time) bool {
 
 func (v *DayOfMonthRange) Match(t time.Time) bool {
 	day := t.Day()
-	list, err := utils.ListDayOfMonth(t, v.Start.Int(), v.End.Int())
+	list, err := util.ListDayOfMonth(t, v.Start.Int(), v.End.Int())
 
 	if err != nil {
 		panic(err)
@@ -220,11 +220,11 @@ func (v *DayOfMonthRange) Match(t time.Time) bool {
 }
 
 func (v *NearestWeekday) Match(t time.Time) bool {
-	return utils.NearestWeekday(t, v.Int()) == t.Day()
+	return util.NearestWeekday(t, v.Int()) == t.Day()
 }
 
 func (v *LastDayOfMonth) Match(t time.Time) bool {
-	return utils.LastOfMonth(t)-v.Int() == t.Day()
+	return util.LastOfMonth(t)-v.Int() == t.Day()
 }
 
 func (e *DayOfMonthExp) Match(t time.Time) bool {
@@ -248,7 +248,7 @@ func (e *DayOfMonthExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListDayOfMonth(t, start, end)
+			list, err := util.ListDayOfMonth(t, start, end)
 
 			if err != nil {
 				panic(err)
@@ -315,7 +315,7 @@ func (v *Month) Match(t time.Time) bool {
 
 func (v *MonthRange) Match(t time.Time) bool {
 	month := t.Month()
-	list, err := utils.ListMonth(v.Start.Month(), v.End.Month())
+	list, err := util.ListMonth(v.Start.Month(), v.End.Month())
 
 	if err != nil {
 		panic(err)
@@ -347,7 +347,7 @@ func (e *MonthExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListMonth(start, end)
+			list, err := util.ListMonth(start, end)
 
 			if err != nil {
 				panic(err)
@@ -410,7 +410,7 @@ func (v *Weekday) Match(t time.Time) bool {
 
 func (v *WeekdayRange) Match(t time.Time) bool {
 	wday := t.Weekday()
-	list, err := utils.ListWeekday(v.Start.Weekday(), v.End.Weekday())
+	list, err := util.ListWeekday(v.Start.Weekday(), v.End.Weekday())
 
 	if err != nil {
 		panic(err)
@@ -426,7 +426,7 @@ func (v *WeekdayRange) Match(t time.Time) bool {
 }
 
 func (v *NthDayOfWeek) Match(t time.Time) bool {
-	return utils.NthDayOfWeek(t, v.Wday.Weekday(), v.Nth) == t.Day()
+	return util.NthDayOfWeek(t, v.Wday.Weekday(), v.Nth) == t.Day()
 }
 
 func (v *LastDayOfWeek) Match(t time.Time) bool {
@@ -454,7 +454,7 @@ func (e *DayOfWeekExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListWeekday(start, end)
+			list, err := util.ListWeekday(start, end)
 
 			if err != nil {
 				panic(err)
@@ -521,7 +521,7 @@ func (v *Year) Match(t time.Time) bool {
 
 func (v *YearRange) Match(t time.Time) bool {
 	year := t.Year()
-	list, err := utils.ListYear(v.Start.Int(), v.End.Int())
+	list, err := util.ListYear(v.Start.Int(), v.End.Int())
 
 	if err != nil {
 		panic(err)
@@ -553,7 +553,7 @@ func (e *YearExp) Match(t time.Time) bool {
 				return false
 			}
 
-			list, err := utils.ListYear(start, end)
+			list, err := util.ListYear(start, end)
 
 			if err != nil {
 				panic(err)
