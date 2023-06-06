@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v4
         with:
           go-version: ">=1.19.2"
       - name: Release cronplan
@@ -25,7 +25,7 @@ jobs:
       - cronplan
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v4
         with:
           go-version: ">=1.19.2"
       - name: Release cronmatch
@@ -42,7 +42,7 @@ jobs:
       - cronmatch
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-go@v2
+      - uses: actions/setup-go@v4
         with:
           go-version: ">=1.19.2"
       - name: Release cronviz
