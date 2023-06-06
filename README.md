@@ -1,6 +1,6 @@
 # cronplan
 
-[![build](https://github.com/winebarrel/cronplan/actions/workflows/build.yml/badge.svg)](https://github.com/winebarrel/redash-go/actions/workflows/test.yml)
+[![test](https://github.com/winebarrel/cronplan/actions/workflows/test.yml/badge.svg)](https://github.com/winebarrel/redash-go/actions/workflows/test.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/winebarrel/cronplan.svg)](https://pkg.go.dev/github.com/winebarrel/cronplan)
 
 Cron expression parser for Amazon EventBridge.
