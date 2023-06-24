@@ -1,3 +1,6 @@
 linters:
   disable:
     - govet
+  enable:
+    - gofmt
+    - misspell
