@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+* N/A
+
+## [1.8.1] - 2023-06-24
+
 ### Added
 
 * Add Changelog.
