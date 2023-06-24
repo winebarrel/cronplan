@@ -34,7 +34,8 @@ archives:
     builds: [cronviz]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 brews:
-  - ids: [cronplan]
+  - name: cronplan
+    ids: [cronplan]
     tap:
       owner: winebarrel
       name: homebrew-cronplan
@@ -43,7 +44,8 @@ brews:
     license: MIT
     install: |
       bin.install 'cronplan'
-  - ids: [cronmatch]
+  - name: cronmatch
+    ids: [cronmatch]
     tap:
       owner: winebarrel
       name: homebrew-cronplan
@@ -52,7 +54,8 @@ brews:
     license: MIT
     install: |
       bin.install 'cronmatch'
-  - ids: [cronviz]
+  - name: cronviz
+    ids: [cronviz]
     tap:
       owner: winebarrel
       name: homebrew-cronplan
