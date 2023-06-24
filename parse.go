@@ -14,11 +14,11 @@ import (
 
 var (
 	cronLexer = lexer.MustSimple([]lexer.SimpleRule{
-		{`Number`, `\d+`},
-		{`Month`, `(?i)(?:` + strings.Join(util.ShortMonthNames, "|") + `)`},
-		{`Weekday`, `(?i)(?:` + strings.Join(util.ShortWeekdayNames, "|") + `)`},
-		{`Symbol`, `[,\-\*\?/LW#]`},
-		{`SP`, `\s+`},
+		{Name: `Number`, Pattern: `\d+`},
+		{Name: `Month`, Pattern: `(?i)(?:` + strings.Join(util.ShortMonthNames, "|") + `)`},
+		{Name: `Weekday`, Pattern: `(?i)(?:` + strings.Join(util.ShortWeekdayNames, "|") + `)`},
+		{Name: `Symbol`, Pattern: `[,\-\*\?/LW#]`},
+		{Name: `SP`, Pattern: `\s+`},
 	})
 
 	Parser = participle.MustBuild[Expression](
