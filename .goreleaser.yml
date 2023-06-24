@@ -23,6 +23,8 @@ builds:
       - -X main.version={{.Version}}
     env:
       - CGO_ENABLED=0
+checksum:
+  name_template: "checksums.txt"
 archives:
   - id: cronplan
     builds: [cronplan]
