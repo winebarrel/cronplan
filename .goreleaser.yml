@@ -1,0 +1,91 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - id: cronplan
+    main: ./cmd/cronplan
+    ldflags:
+      - -X main.version={{.Version}}
+    env:
+      - CGO_ENABLED=0
+  - id: cronmatch
+    main: ./cmd/cronmatch
+    ldflags:
+      - -X main.version={{.Version}}
+    env:
+      - CGO_ENABLED=0
+  - id: cronviz
+    main: ./cmd/cronviz
+    ldflags:
+      - -X main.version={{.Version}}
+    env:
+      - CGO_ENABLED=0
+archives:
+  - id: cronplan
+    builds: [cronplan]
+  - id: cronmatch
+    builds: [cronmatch]
+  - id: cronviz
+    builds: [cronviz]
+brews:
+  - ids: [cronplan]
+    tap:
+      owner: winebarrel
+      name: homebrew-cronplan
+    homepage: https://github.com/winebarrel/cronplan
+    description: cronplan is a tool to show next triggers for AWS cron expression.
+    license: MIT
+    install: |
+      bin.install 'cronplan'
+  - ids: [cronmatch]
+    tap:
+      owner: winebarrel
+      name: homebrew-cronplan
+    homepage: https://github.com/winebarrel/cronplan
+    description: cronmatch is a tool to check if datetime matches AWS cron expression.
+    license: MIT
+    install: |
+      bin.install 'cronmatch'
+  - ids: [cronviz]
+    tap:
+      owner: winebarrel
+      name: homebrew-cronplan
+    homepage: https://github.com/winebarrel/cronplan
+    description: cronviz is a tool to visualize cron schedule.
+    license: MIT
+    install: |
+      bin.install 'cronviz'
+nfpms:
+  - id: cronplan-nfpms
+    builds: [cronplan]
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    homepage: https://github.com/winebarrel/cronplan
+    maintainer: Genki Sugawara <sugawara@winebarrel.jp>
+    description: cronplan is a tool to show next triggers for AWS cron expression.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+  - id: cronmatch-nfpms
+    builds: [cronmatch]
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    homepage: https://github.com/winebarrel/cronplan
+    maintainer: Genki Sugawara <sugawara@winebarrel.jp>
+    description: cronmatch is a tool to check if datetime matches AWS cron expression.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+  - id: cronviz-nfpms
+    builds: [cronviz]
+    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    homepage: https://github.com/winebarrel/cronplan
+    maintainer: Genki Sugawara <sugawara@winebarrel.jp>
+    description: cronviz is a tool to visualize cron schedule.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
