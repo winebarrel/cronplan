@@ -2,7 +2,9 @@
 
 ## [Unreleased]
 
-* N/A
+### Changed
+
+* Enable govet.
 
 ## [1.8.1] - 2023-06-24
 
