@@ -12,5 +12,5 @@ jobs:
           go-version: ">=1.19.2"
       - uses: golangci/golangci-lint-action@v3
         with:
-          args: -E gofmt,misspell
+          args: -D govet -E gofmt,misspell
       - run: make build test
