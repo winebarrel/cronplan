@@ -23,10 +23,13 @@ builds:
 archives:
   - id: cronplan
     builds: [cronplan]
+    name_template: "cronplan_{{ .Version }}_{{ .Runtime.Goos }}_{{ .Runtime.Goarch }}"
   - id: cronmatch
     builds: [cronmatch]
+    name_template: "cronmatch_{{ .Version }}_{{ .Runtime.Goos }}_{{ .Runtime.Goarch }}"
   - id: cronviz
     builds: [cronviz]
+    name_template: "cronviz_{{ .Version }}_{{ .Runtime.Goos }}_{{ .Runtime.Goarch }}"
 brews:
   - ids: [cronplan]
     tap:
@@ -58,7 +61,7 @@ brews:
 nfpms:
   - id: cronplan-nfpms
     builds: [cronplan]
-    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    file_name_template: "cronplan_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
     description: cronplan is a tool to show next triggers for AWS cron expression.
@@ -69,7 +72,7 @@ nfpms:
     bindir: /usr/bin
   - id: cronmatch-nfpms
     builds: [cronmatch]
-    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    file_name_template: "cronmatch_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
     description: cronmatch is a tool to check if datetime matches AWS cron expression.
@@ -80,7 +83,7 @@ nfpms:
     bindir: /usr/bin
   - id: cronviz-nfpms
     builds: [cronviz]
-    file_name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Arch }}"
+    file_name_template: "cronviz_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
     description: cronviz is a tool to visualize cron schedule.
