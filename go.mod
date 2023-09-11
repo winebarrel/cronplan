@@ -3,7 +3,7 @@ module github.com/winebarrel/cronplan
 go 1.19
 
 require (
-	github.com/alecthomas/participle/v2 v2.0.0
+	github.com/alecthomas/participle/v2 v2.1.0
 	github.com/stretchr/testify v1.8.4
 )
 
