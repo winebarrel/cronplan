@@ -492,6 +492,8 @@ func (v *NthDayOfWeek) String() string {
 }
 
 type LastDayOfWeek struct {
+	// NOTE: It seems that "L" without a number can be entered,
+	//		   but the schedule is strange so it is not allowed.
 	Wday Weekday `(@Number | @Weekday) "L"`
 }
 
