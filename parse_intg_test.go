@@ -53,7 +53,7 @@ func nwday(i int) *cronplan.NearestWeekday {
 }
 
 func lastw(i time.Weekday) *cronplan.LastDayOfWeek {
-	v := cronplan.LastDayOfWeek(i)
+	v := cronplan.LastDayOfWeek{*wday(i)}
 	return &v
 }
 

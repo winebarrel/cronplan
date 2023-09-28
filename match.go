@@ -430,7 +430,7 @@ func (v *NthDayOfWeek) Match(t time.Time) bool {
 }
 
 func (v *LastDayOfWeek) Match(t time.Time) bool {
-	return v.Weekday() == t.Weekday()
+	return util.LastWdayOfMonth(t, v.Weekday()) == t.Day()
 }
 
 func (e *DayOfWeekExp) Match(t time.Time) bool {

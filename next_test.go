@@ -92,6 +92,16 @@ func TestNext(t *testing.T) {
 			expected: time.Date(2022, 10, 28, 7, 33, 0, 0, time.UTC),
 		},
 		{
+			exp:      "32 6 ? * FRIL *",
+			from:     time.Date(2022, 10, 14, 6, 32, 0, 0, time.UTC),
+			expected: time.Date(2022, 10, 28, 6, 32, 0, 0, time.UTC),
+		},
+		{
+			exp:      "31 5 ? * 2L *",
+			from:     time.Date(2022, 10, 14, 5, 31, 0, 0, time.UTC),
+			expected: time.Date(2022, 10, 31, 5, 31, 0, 0, time.UTC),
+		},
+		{
 			exp:      "35 9 5W NOV ? *",
 			from:     time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC),
 			expected: time.Date(2022, 11, 4, 9, 35, 0, 0, time.UTC),
@@ -245,6 +255,15 @@ func TestNextN_3(t *testing.T) {
 				time.Date(2022, 10, 21, 7, 33, 0, 0, time.UTC),
 				time.Date(2022, 10, 28, 7, 33, 0, 0, time.UTC),
 				time.Date(2022, 11, 4, 7, 33, 0, 0, time.UTC),
+			},
+		},
+		{
+			exp:  "33 7 ? * 6L *",
+			from: time.Date(2022, 10, 14, 7, 34, 0, 0, time.UTC),
+			expected: []time.Time{
+				time.Date(2022, 10, 28, 7, 33, 0, 0, time.UTC),
+				time.Date(2022, 11, 25, 7, 33, 0, 0, time.UTC),
+				time.Date(2022, 12, 30, 7, 33, 0, 0, time.UTC),
 			},
 		},
 		{

@@ -110,6 +110,45 @@ func TestLastOfMonth(t *testing.T) {
 	}
 }
 
+func TestLastWdayOfMonth(t *testing.T) {
+	assert := assert.New(t)
+
+	tt := []struct {
+		tm       time.Time
+		wday     time.Weekday
+		expected int
+	}{
+		{time.Date(2023, 1, 1, 9, 0, 0, 0, time.UTC), time.Sunday, 29},
+		{time.Date(2023, 2, 1, 9, 0, 0, 0, time.UTC), time.Monday, 27},
+		{time.Date(2023, 3, 1, 9, 0, 0, 0, time.UTC), time.Tuesday, 28},
+		{time.Date(2023, 4, 1, 9, 0, 0, 0, time.UTC), time.Wednesday, 26},
+		{time.Date(2023, 5, 1, 9, 0, 0, 0, time.UTC), time.Thursday, 25},
+		{time.Date(2023, 6, 1, 9, 0, 0, 0, time.UTC), time.Friday, 30},
+		{time.Date(2023, 7, 1, 9, 0, 0, 0, time.UTC), time.Saturday, 29},
+		{time.Date(2023, 8, 1, 9, 0, 0, 0, time.UTC), time.Sunday, 27},
+		{time.Date(2023, 9, 1, 9, 0, 0, 0, time.UTC), time.Monday, 25},
+		{time.Date(2023, 10, 1, 9, 0, 0, 0, time.UTC), time.Tuesday, 31},
+		{time.Date(2023, 11, 1, 9, 0, 0, 0, time.UTC), time.Wednesday, 29},
+		{time.Date(2023, 12, 1, 9, 0, 0, 0, time.UTC), time.Thursday, 28},
+		{time.Date(2024, 1, 1, 9, 0, 0, 0, time.UTC), time.Friday, 26},
+		{time.Date(2024, 2, 1, 9, 0, 0, 0, time.UTC), time.Saturday, 24},
+		{time.Date(2024, 3, 1, 9, 0, 0, 0, time.UTC), time.Sunday, 31},
+		{time.Date(2024, 4, 1, 9, 0, 0, 0, time.UTC), time.Monday, 29},
+		{time.Date(2024, 5, 1, 9, 0, 0, 0, time.UTC), time.Tuesday, 28},
+		{time.Date(2024, 6, 1, 9, 0, 0, 0, time.UTC), time.Wednesday, 26},
+		{time.Date(2024, 7, 1, 9, 0, 0, 0, time.UTC), time.Thursday, 25},
+		{time.Date(2024, 8, 1, 9, 0, 0, 0, time.UTC), time.Friday, 30},
+		{time.Date(2024, 9, 1, 9, 0, 0, 0, time.UTC), time.Saturday, 28},
+		{time.Date(2024, 10, 1, 9, 0, 0, 0, time.UTC), time.Sunday, 27},
+		{time.Date(2024, 11, 1, 9, 0, 0, 0, time.UTC), time.Monday, 25},
+		{time.Date(2024, 12, 1, 9, 0, 0, 0, time.UTC), time.Tuesday, 31},
+	}
+
+	for _, t := range tt {
+		assert.Equal(t.expected, util.LastWdayOfMonth(t.tm, t.wday), t.tm)
+	}
+}
+
 func TestNearestWeekday(t *testing.T) {
 	assert := assert.New(t)
 
