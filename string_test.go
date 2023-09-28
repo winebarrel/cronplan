@@ -211,9 +211,22 @@ func TestLastOfMonthToString2(t *testing.T) {
 }
 
 func TestLastOfWeekToString(t *testing.T) {
+	tt := map[time.Weekday]string{
+		time.Sunday:    "SUN",
+		time.Monday:    "MON",
+		time.Tuesday:   "TUE",
+		time.Wednesday: "WED",
+		time.Thursday:  "THU",
+		time.Friday:    "FRI",
+		time.Saturday:  "SAT",
+	}
+
 	assert := assert.New(t)
-	x := cronplan.LastDayOfWeek(time.Saturday)
-	assert.Equal("L", x.String())
+
+	for w, s := range tt {
+		x := cronplan.LastDayOfWeek{*wday(w)}
+		assert.Equal(s+"L", x.String())
+	}
 }
 
 func TestNearestWeekdayToString(t *testing.T) {

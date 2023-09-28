@@ -443,8 +443,8 @@ func (v *Weekday) Capture(values []string) error {
 	if r.MatchString(s) {
 		n, _ := strconv.Atoi(s)
 
-		if n < 1 || 12 < n {
-			return fmt.Errorf("day-of-week number must be 1-12 (value=%d)", n)
+		if n < 1 || 7 < n {
+			return fmt.Errorf("day-of-week number must be 1-7 (value=%d)", n)
 		}
 
 		*v = Weekday(n - 1)
@@ -491,30 +491,21 @@ func (v *NthDayOfWeek) String() string {
 	return fmt.Sprintf("%s#%d", v.Wday, v.Nth)
 }
 
-type LastDayOfWeek time.Weekday
-
-func (v *LastDayOfWeek) Capture(values []string) error {
-	s := values[0]
-
-	if s != "L" {
-		return fmt.Errorf("connot convert to last-day-of-week from %s", s)
-	}
-
-	*v = LastDayOfWeek(time.Saturday)
-	return nil
+type LastDayOfWeek struct {
+	Wday Weekday `(@Number | @Weekday) "L"`
 }
 
 func (v *LastDayOfWeek) Weekday() time.Weekday {
-	return time.Weekday(*v)
+	return time.Weekday(v.Wday)
 }
 
 func (v *LastDayOfWeek) String() string {
-	return "L"
+	return fmt.Sprintf("%sL", v.Wday.String())
 }
 
 type DayOfWeekExp struct {
 	Nth      *NthDayOfWeek  `@@`
-	Last     *LastDayOfWeek `| @"L"`
+	Last     *LastDayOfWeek `| @@`
 	Wildcard bool           `| ( ( @"*"`
 	Range    *WeekdayRange  `      | @@`
 	Wday     *Weekday       `      | ( @Number | @Weekday ) )`

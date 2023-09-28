@@ -258,6 +258,20 @@ func TestMatchDayOfWeek(t *testing.T) {
 				{time.Date(2022, 11, 28, 1, 1, 0, 0, time.UTC), false},
 			},
 		},
+		{
+			exp: "* * ? * 6L *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2023, 10, 27, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 25, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2023, 12, 18, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2024, 1, 26, 1, 1, 0, 0, time.UTC), true},
+				{time.Date(2024, 2, 22, 1, 1, 0, 0, time.UTC), false},
+				{time.Date(2024, 3, 20, 1, 1, 0, 0, time.UTC), false},
+			},
+		},
 	}
 
 	for _, t := range tt {

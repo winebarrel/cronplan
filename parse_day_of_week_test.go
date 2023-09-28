@@ -82,10 +82,23 @@ func TestDayOfWeekAny(t *testing.T) {
 }
 
 func TestDayOfWeekLast(t *testing.T) {
+	tt := []time.Weekday{
+		time.Sunday,
+		time.Monday,
+		time.Tuesday,
+		time.Wednesday,
+		time.Thursday,
+		time.Friday,
+		time.Saturday,
+	}
+
 	assert := assert.New(t)
-	cron, err := cronplan.Parse("* * ? * L *")
-	assert.NoError(err)
-	assert.Equal(lastw(time.Saturday), cron.DayOfWeek.Exps[0].Last)
+
+	for i, w := range tt {
+		cron, err := cronplan.Parse(fmt.Sprintf("* * ? * %dL *", i+1))
+		assert.NoError(err)
+		assert.Equal(lastw(w), cron.DayOfWeek.Exps[0].Last)
+	}
 }
 
 func TestDayOfWeekName(t *testing.T) {
@@ -148,7 +161,7 @@ func TestDayOfWeekNameIncrRange(t *testing.T) {
 
 func TestDayOfWeekComplex(t *testing.T) {
 	assert := assert.New(t)
-	cron, err := cronplan.Parse("* * ? * *,1,1-7,1/5,*/5,L,SUN,SUN-SAT *")
+	cron, err := cronplan.Parse("* * ? * *,1,1-7,1/5,*/5,5L,MONL,SUN,SUN-SAT *")
 	assert.NoError(err)
 	assert.True(cron.DayOfWeek.Exps[0].Wildcard)
 	assert.Equal(wday(time.Sunday), cron.DayOfWeek.Exps[1].Wday)
@@ -164,10 +177,11 @@ func TestDayOfWeekComplex(t *testing.T) {
 		Wildcard: true,
 		Bottom:   intptr(5),
 	}, cron.DayOfWeek.Exps[4])
-	assert.Equal(lastw(time.Saturday), cron.DayOfWeek.Exps[5].Last)
-	assert.Equal(wday(time.Sunday), cron.DayOfWeek.Exps[6].Wday)
+	assert.Equal(lastw(time.Thursday), cron.DayOfWeek.Exps[5].Last)
+	assert.Equal(lastw(time.Monday), cron.DayOfWeek.Exps[6].Last)
+	assert.Equal(wday(time.Sunday), cron.DayOfWeek.Exps[7].Wday)
 	assert.Equal(&cronplan.WeekdayRange{
 		Start: wday(time.Sunday),
 		End:   wday(time.Saturday),
-	}, cron.DayOfWeek.Exps[7].Range)
+	}, cron.DayOfWeek.Exps[8].Range)
 }
