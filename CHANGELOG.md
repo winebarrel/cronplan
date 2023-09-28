@@ -2,9 +2,17 @@
 
 ## [Unreleased]
 
+N/A
+
+## [1.9.0] - 2023-09-29
+
 ### Changed
 
 * Enable govet.
+
+### Fixed
+
+* Fix for last weekday of the month. (e.g. "6L", "MONL")
 
 ## [1.8.1] - 2023-06-24
 
