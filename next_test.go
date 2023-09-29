@@ -148,6 +148,72 @@ func TestNextN_10(t *testing.T) {
 	)
 }
 
+func TestNextN_10_LastFri(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("0 0 ? * 6L *")
+	assert.NoError(err)
+	schedule := cron.NextN(time.Date(2023, 10, 1, 0, 0, 0, 0, time.UTC), 10)
+	assert.Equal(
+		[]time.Time{
+			time.Date(2023, time.October, 27, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 24, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.December, 29, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.January, 26, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.February, 23, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.March, 29, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.April, 26, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.May, 31, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.June, 28, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.July, 26, 0, 0, 0, 0, time.UTC),
+		},
+		schedule,
+	)
+}
+
+func TestNextN_10_LastSat(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("0 0 ? * SATL *")
+	assert.NoError(err)
+	schedule := cron.NextN(time.Date(2023, 10, 1, 0, 0, 0, 0, time.UTC), 10)
+	assert.Equal(
+		[]time.Time{
+			time.Date(2023, time.October, 28, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 25, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.December, 30, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.January, 27, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.February, 24, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.March, 30, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.April, 27, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.May, 25, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.June, 29, 0, 0, 0, 0, time.UTC),
+			time.Date(2024, time.July, 27, 0, 0, 0, 0, time.UTC),
+		},
+		schedule,
+	)
+}
+
+func TestNextN_10_LastWdayWithoutWday(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("0 0 ? * L *")
+	assert.NoError(err)
+	schedule := cron.NextN(time.Date(2023, 10, 1, 0, 0, 0, 0, time.UTC), 10)
+	assert.Equal(
+		[]time.Time{
+			time.Date(2023, time.October, 1, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 8, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 15, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 22, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 29, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 05, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 12, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 19, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 26, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.December, 03, 0, 0, 0, 0, time.UTC),
+		},
+		schedule,
+	)
+}
+
 func TestNextN_TZ(t *testing.T) {
 	jst, err := time.LoadLocation("Asia/Tokyo")
 

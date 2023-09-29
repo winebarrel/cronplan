@@ -299,6 +299,60 @@ func TestIntegrationMatch(t *testing.T) {
 				{time.Date(2021, 11, 11, 11, 1, 0, 0, time.UTC), false},
 			},
 		},
+		{
+			exp: "0 0 ? * 6L *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2023, 10, 27, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 24, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 12, 29, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 20, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 17, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 12, 22, 0, 0, 0, 0, time.UTC), false},
+			},
+		},
+		{
+			exp: "0 0 ? * 7L *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2023, 10, 28, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 25, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 12, 30, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 21, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 18, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 12, 21, 0, 0, 0, 0, time.UTC), false},
+			},
+		},
+		{
+			exp: "0 0 ? * L *",
+			tests: []struct {
+				tm       time.Time
+				expected bool
+			}{
+				{time.Date(2023, 10, 1, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 8, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 15, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 29, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 5, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 12, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 19, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 11, 26, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 12, 3, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2023, 10, 2, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 10, 9, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 10, 16, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 10, 30, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 4, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 11, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 18, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 11, 25, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2023, 12, 2, 0, 0, 0, 0, time.UTC), false},
+			},
+		},
 	}
 
 	for _, t := range tt {

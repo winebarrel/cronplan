@@ -492,17 +492,19 @@ func (v *NthDayOfWeek) String() string {
 }
 
 type LastDayOfWeek struct {
-	// NOTE: It seems that "L" without a number can be entered,
-	//       but the schedule is strange so it is not allowed.
-	Wday Weekday `(@Number | @Weekday) "L"`
+	Wday *Weekday `(@Number | @Weekday)? "L"`
 }
 
 func (v *LastDayOfWeek) Weekday() time.Weekday {
-	return time.Weekday(v.Wday)
+	return time.Weekday(*v.Wday)
 }
 
 func (v *LastDayOfWeek) String() string {
-	return fmt.Sprintf("%sL", v.Wday.String())
+	if v.Wday == nil {
+		return "L"
+	} else {
+		return fmt.Sprintf("%sL", v.Wday.String())
+	}
 }
 
 type DayOfWeekExp struct {
