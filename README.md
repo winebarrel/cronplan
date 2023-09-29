@@ -177,4 +177,4 @@ cf. https://raw.githack.com/winebarrel/cronplan/main/_example/timeline.html
 
 ## Related Links
 
-* [Schedule Expressions for Rules - Amazon CloudWatch Events](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+* [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)
