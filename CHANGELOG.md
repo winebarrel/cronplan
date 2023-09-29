@@ -4,6 +4,12 @@
 
 N/A
 
+## [1.9.1] - 2023-09-29
+
+### Added
+
+* Support "L" without wday in day-of-week. (e.g "0 0 ? * L *")
+
 ## [1.9.0] - 2023-09-29
 
 ### Changed
