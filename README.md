@@ -57,6 +57,30 @@ func main() {
 }
 ```
 
+## About the behavior of "L" in day-of-week
+
+If you specify L for day-of-week, the last day of the week of each month is usually matched.
+
+```
+# cron(0 0 ? * 6L *)
+Fri, 27 Oct 2023 00:00:00
+Fri, 24 Nov 2023 00:00:00
+Fri, 29 Dec 2023 00:00:00
+Fri, 26 Jan 2024 00:00:00
+Fri, 23 Feb 2024 00:00:00
+```
+
+However, if you do not specify the day of the week before "L", the behavior will be the same as when you specify "SAT".
+
+```
+# cron(0 0 ? * L *) = cron(0 0 ? * SAT *)
+Sun, 01 Oct 2023 00:00:00
+Sun, 08 Oct 2023 00:00:00
+Sun, 15 Oct 2023 00:00:00
+Sun, 22 Oct 2023 00:00:00
+Sun, 29 Oct 2023 00:00:00
+```
+
 # cronplan CLI
 
 CLI to show next triggers.
