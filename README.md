@@ -202,3 +202,4 @@ cf. https://raw.githack.com/winebarrel/cronplan/main/_example/timeline.html
 ## Related Links
 
 * [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)
+* https://github.com/winebarrel/terraform-provider-cronplan
