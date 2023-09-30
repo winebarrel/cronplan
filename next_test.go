@@ -199,16 +199,16 @@ func TestNextN_10_LastWdayWithoutWday(t *testing.T) {
 	schedule := cron.NextN(time.Date(2023, 10, 1, 0, 0, 0, 0, time.UTC), 10)
 	assert.Equal(
 		[]time.Time{
-			time.Date(2023, time.October, 1, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.October, 8, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.October, 15, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.October, 22, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.October, 29, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.November, 05, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.November, 12, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.November, 19, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.November, 26, 0, 0, 0, 0, time.UTC),
-			time.Date(2023, time.December, 03, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 7, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 14, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 21, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.October, 28, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 04, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 11, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 18, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.November, 25, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.December, 2, 0, 0, 0, 0, time.UTC),
+			time.Date(2023, time.December, 9, 0, 0, 0, 0, time.UTC),
 		},
 		schedule,
 	)

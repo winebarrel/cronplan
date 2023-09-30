@@ -74,11 +74,11 @@ However, if you do not specify the day of the week before "L", the behavior will
 
 ```
 # cron(0 0 ? * L *) = cron(0 0 ? * SAT *)
-Sun, 01 Oct 2023 00:00:00
-Sun, 08 Oct 2023 00:00:00
-Sun, 15 Oct 2023 00:00:00
-Sun, 22 Oct 2023 00:00:00
-Sun, 29 Oct 2023 00:00:00
+Sat, 07 Oct 2023 00:00:00
+Sat, 14 Oct 2023 00:00:00
+Sat, 21 Oct 2023 00:00:00
+Sat, 28 Oct 2023 00:00:00
+Sat, 04 Nov 2023 00:00:00
 ```
 
 # cronplan CLI
