@@ -433,7 +433,7 @@ func (v *LastDayOfWeek) Match(t time.Time) bool {
 	if v.Wday == nil {
 		// NOTE: If the day of the week is not specified,
 		//       it will be the same as when SAT is specified.
-		return t.Weekday() == time.Sunday
+		return t.Weekday() == time.Saturday
 	} else {
 		return util.LastWdayOfMonth(t, v.Weekday()) == t.Day()
 	}

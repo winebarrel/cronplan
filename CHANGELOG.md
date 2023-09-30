@@ -4,6 +4,12 @@
 
 N/A
 
+## [1.9.2] - 2023-09-30
+
+### Fixed
+
+* Fix bug for "L" without wday in day-of-week.
+
 ## [1.9.1] - 2023-09-29
 
 ### Added
