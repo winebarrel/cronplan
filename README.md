@@ -203,3 +203,4 @@ cf. https://raw.githack.com/winebarrel/cronplan/main/_example/timeline.html
 
 * [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)
 * https://github.com/winebarrel/terraform-provider-cronplan
+* [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html)
