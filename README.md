@@ -215,6 +215,35 @@ $ open output.html
 
 cf. https://raw.githack.com/winebarrel/cronplan/main/_example/timeline.html
 
+# crongrep CLI
+
+CLI to grep with cron expression.
+
+## Installation
+
+```
+brew install winebarrel/cronplan/crongrep
+```
+
+## Usage
+
+```
+Usage: crongrep [OPTION] CRON_EXPR
+  -version
+    	print version and exit
+```
+
+```
+$ for i in {1..5}; do
+LANG=C date
+done | crongrep '0 * * * ? *'
+Sun Oct  1 21:00:00 JST 2023
+Sun Oct  1 21:00:00 JST 2023
+Sun Oct  1 21:00:00 JST 2023
+Sun Oct  1 21:00:00 JST 2023
+Sun Oct  1 21:00:00 JST 2023
+```
+
 ## Related Links
 
 * [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)
