@@ -116,6 +116,11 @@ func TestNext(t *testing.T) {
 			from:     time.Date(2022, 10, 10, 9, 0, 0, 0, time.UTC),
 			expected: time.Date(2022, 10, 10, 12, 34, 0, 0, time.UTC),
 		},
+		{
+			exp:      "35 13 LW * ? *",
+			from:     time.Date(2022, 10, 10, 9, 0, 0, 0, time.UTC),
+			expected: time.Date(2022, 10, 31, 13, 35, 0, 0, time.UTC),
+		},
 	}
 
 	for _, t := range tt {
@@ -361,6 +366,15 @@ func TestNextN_3(t *testing.T) {
 			exp:      "35 9 17 DEC ? 2020",
 			from:     time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC),
 			expected: []time.Time{},
+		},
+		{
+			exp:  "34 8 LW * ? *",
+			from: time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC),
+			expected: []time.Time{
+				time.Date(2022, 10, 31, 8, 34, 0, 0, time.UTC),
+				time.Date(2022, 11, 30, 8, 34, 0, 0, time.UTC),
+				time.Date(2022, 12, 30, 8, 34, 0, 0, time.UTC),
+			},
 		},
 	}
 

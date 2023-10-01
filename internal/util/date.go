@@ -45,6 +45,16 @@ func LastWdayOfMonth(t time.Time, w time.Weekday) int {
 	}
 }
 
+func LastWeekdayOfMonth(t time.Time) int {
+	lom := t.AddDate(0, 1, -t.Day())
+
+	for i := lom; ; i = i.AddDate(0, 0, -1) {
+		if i.Weekday() != time.Saturday && i.Weekday() != time.Sunday {
+			return i.Day()
+		}
+	}
+}
+
 func NearestWeekday(t2 time.Time, day int) int {
 	base := time.Date(t2.Year(), t2.Month(), day, 0, 0, 0, 0, t2.Location())
 	lom := LastOfMonth(time.Date(t2.Year(), t2.Month(), 1, 0, 0, 0, 0, t2.Location()))
