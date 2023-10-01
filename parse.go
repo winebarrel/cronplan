@@ -293,13 +293,25 @@ func (v *LastDayOfMonth) String() string {
 	}
 }
 
+type LastWeekdayOfMonth struct{}
+
+func (v *LastWeekdayOfMonth) Capture(values []string) error {
+	*v = LastWeekdayOfMonth{}
+	return nil
+}
+
+func (v *LastWeekdayOfMonth) String() string {
+	return "LW"
+}
+
 type DayOfMonthExp struct {
-	NearestWeekday *NearestWeekday  `( @Number "W" )`
-	Wildcard       bool             `| ( ( @"*"`
-	Range          *DayOfMonthRange `      | @@`
-	Number         *DayOfMonth      `      | @Number )`
-	Bottom         *int             `    ( "/" @Number )? )`
-	Last           *LastDayOfMonth  `| ( @"L" ( "-" @Number )? )`
+	NearestWeekday *NearestWeekday     `( @Number "W" )`
+	Wildcard       bool                `| ( ( @"*"`
+	Range          *DayOfMonthRange    `      | @@`
+	Number         *DayOfMonth         `      | @Number )`
+	Bottom         *int                `    ( "/" @Number )? )`
+	LastWeekday    *LastWeekdayOfMonth `| ( @"L" "W" )`
+	Last           *LastDayOfMonth     `| ( @"L" ( "-" @Number )? )`
 }
 
 func (e *DayOfMonthExp) String() string {
@@ -311,6 +323,8 @@ func (e *DayOfMonthExp) String() string {
 		s = e.Range.String()
 	} else if e.Number != nil {
 		s = e.Number.String()
+	} else if e.LastWeekday != nil {
+		s = e.LastWeekday.String()
 	} else if e.Last != nil {
 		s = e.Last.String()
 	} else if e.NearestWeekday != nil {

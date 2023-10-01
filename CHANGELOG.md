@@ -4,6 +4,12 @@
 
 N/A
 
+## [1.10.0] - 2023-10-01
+
+### Added
+
+* Support "LW" in day-of-month. (e.g "0 0 LW * ? *")
+
 ## [1.9.2] - 2023-09-30
 
 ### Fixed

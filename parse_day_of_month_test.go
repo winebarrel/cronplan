@@ -106,9 +106,16 @@ func TestDayOfMonthWeekday(t *testing.T) {
 	assert.Equal(nwday(3), cron.DayOfMonth.Exps[0].NearestWeekday)
 }
 
+func TestDayOfMonthLastWeekday(t *testing.T) {
+	assert := assert.New(t)
+	cron, err := cronplan.Parse("* * LW * ? *")
+	assert.NoError(err)
+	assert.Equal(&cronplan.LastWeekdayOfMonth{}, cron.DayOfMonth.Exps[0].LastWeekday)
+}
+
 func TestDayOfMonthComplex(t *testing.T) {
 	assert := assert.New(t)
-	cron, err := cronplan.Parse("* * *,1,1-30,1/5,*/5,L,3W * ? *")
+	cron, err := cronplan.Parse("* * *,1,1-30,1/5,*/5,L,3W,LW * ? *")
 	assert.NoError(err)
 	assert.True(cron.DayOfMonth.Exps[0].Wildcard)
 	assert.Equal(day(1), cron.DayOfMonth.Exps[1].Number)
@@ -126,4 +133,5 @@ func TestDayOfMonthComplex(t *testing.T) {
 	}, cron.DayOfMonth.Exps[4])
 	assert.Equal(last(0), cron.DayOfMonth.Exps[5].Last)
 	assert.Equal(nwday(3), cron.DayOfMonth.Exps[6].NearestWeekday)
+	assert.Equal(&cronplan.LastWeekdayOfMonth{}, cron.DayOfMonth.Exps[7].LastWeekday)
 }

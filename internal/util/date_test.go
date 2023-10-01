@@ -284,3 +284,41 @@ func TestNthDayOfWeek(t *testing.T) {
 		assert.Equal(t.expected, util.NthDayOfWeek(t.tm, t.w, t.nth), fmt.Sprintf("%s %v", t.tm, t))
 	}
 }
+
+func TestLastWeekdayOfMonth(t *testing.T) {
+	assert := assert.New(t)
+
+	tt := []struct {
+		tm       time.Time
+		expected int
+	}{
+		{time.Date(2023, 1, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 2, 1, 9, 0, 0, 0, time.UTC), 28},
+		{time.Date(2023, 3, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 4, 1, 9, 0, 0, 0, time.UTC), 28},
+		{time.Date(2023, 5, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 6, 1, 9, 0, 0, 0, time.UTC), 30},
+		{time.Date(2023, 7, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 8, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 9, 1, 9, 0, 0, 0, time.UTC), 29},
+		{time.Date(2023, 10, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2023, 11, 1, 9, 0, 0, 0, time.UTC), 30},
+		{time.Date(2023, 12, 1, 9, 0, 0, 0, time.UTC), 29},
+		{time.Date(2024, 1, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2024, 2, 1, 9, 0, 0, 0, time.UTC), 29},
+		{time.Date(2024, 3, 1, 9, 0, 0, 0, time.UTC), 29},
+		{time.Date(2024, 4, 1, 9, 0, 0, 0, time.UTC), 30},
+		{time.Date(2024, 5, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2024, 6, 1, 9, 0, 0, 0, time.UTC), 28},
+		{time.Date(2024, 7, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2024, 8, 1, 9, 0, 0, 0, time.UTC), 30},
+		{time.Date(2024, 9, 1, 9, 0, 0, 0, time.UTC), 30},
+		{time.Date(2024, 10, 1, 9, 0, 0, 0, time.UTC), 31},
+		{time.Date(2024, 11, 1, 9, 0, 0, 0, time.UTC), 29},
+		{time.Date(2024, 12, 1, 9, 0, 0, 0, time.UTC), 31},
+	}
+
+	for _, t := range tt {
+		assert.Equal(t.expected, util.LastWeekdayOfMonth(t.tm), t.tm)
+	}
+}

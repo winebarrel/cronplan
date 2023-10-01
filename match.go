@@ -227,9 +227,15 @@ func (v *LastDayOfMonth) Match(t time.Time) bool {
 	return util.LastOfMonth(t)-v.Int() == t.Day()
 }
 
+func (v *LastWeekdayOfMonth) Match(t time.Time) bool {
+	return util.LastWeekdayOfMonth(t) == t.Day()
+}
+
 func (e *DayOfMonthExp) Match(t time.Time) bool {
 	if e.NearestWeekday != nil {
 		return e.NearestWeekday.Match(t)
+	} else if e.LastWeekday != nil {
+		return e.LastWeekday.Match(t)
 	} else if e.Last != nil {
 		return e.Last.Match(t)
 	} else if e.Bottom != nil {
