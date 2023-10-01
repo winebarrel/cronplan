@@ -8,6 +8,22 @@
 
 Cron expression parser for Amazon EventBridge.
 
+### Try with curl
+
+```sh
+$ curl cronplan.in -d '5 0 10 * ? *'
+Tue, 10 Oct 2023 00:05:00
+Fri, 10 Nov 2023 00:05:00
+Sun, 10 Dec 2023 00:05:00
+Wed, 10 Jan 2024 00:05:00
+Sat, 10 Feb 2024 00:05:00
+Sun, 10 Mar 2024 00:05:00
+Wed, 10 Apr 2024 00:05:00
+Fri, 10 May 2024 00:05:00
+Mon, 10 Jun 2024 00:05:00
+Wed, 10 Jul 2024 00:05:00
+```
+
 ## Installation
 
 ```sh
