@@ -234,14 +234,17 @@ Usage: crongrep [OPTION] CRON_EXPR
 ```
 
 ```
-$ for i in {1..5}; do
-LANG=C date
-done | crongrep '0 * * * ? *'
-Sun Oct  1 21:00:00 JST 2023
-Sun Oct  1 21:00:00 JST 2023
-Sun Oct  1 21:00:00 JST 2023
-Sun Oct  1 21:00:00 JST 2023
-Sun Oct  1 21:00:00 JST 2023
+$ cronplan -n 5 '10 12 */5 * ? *'
+Fri, 06 Oct 2023 12:10:00
+Wed, 11 Oct 2023 12:10:00
+Mon, 16 Oct 2023 12:10:00
+Sat, 21 Oct 2023 12:10:00
+Thu, 26 Oct 2023 12:10:00
+
+$ cronplan -n 5 '10 12 */5 * ? *' | crongrep '* * ? * WED-FRI *'
+Fri, 06 Oct 2023 12:10:00
+Wed, 11 Oct 2023 12:10:00
+Thu, 26 Oct 2023 12:10:00
 ```
 
 ## Related Links
