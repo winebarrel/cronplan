@@ -75,7 +75,7 @@ func main() {
 
 ## About the behavior of "L" in day-of-week
 
-If you specify L for day-of-week, the last day of the week of each month is usually matched.
+If you specify "L" for day-of-week, the last day of the week of each month is usually matched.
 
 ```
 # cron(0 0 ? * 6L *)
