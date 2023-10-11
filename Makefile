@@ -6,6 +6,7 @@ build:
 	go build ./cmd/cronplan
 	go build ./cmd/cronmatch
 	go build ./cmd/cronviz
+	go build ./cmd/crongrep
 
 .PHONY: vet
 vet:
@@ -24,3 +25,4 @@ clean:
 	rm -f cronplan cronplan.exe
 	rm -f cronmatch cronmatch.exe
 	rm -f cronviz cronviz.exe
+	rm -f crongrep crongrep.exe
