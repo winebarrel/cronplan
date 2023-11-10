@@ -73,7 +73,7 @@ func main() {
 }
 ```
 
-## About the behavior of "L" in day-of-week
+## Behavior of "L" in day-of-week
 
 If you specify "L" for day-of-week, the last day of the week of each month is usually matched.
 
