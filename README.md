@@ -1,6 +1,6 @@
 # cronplan
 
-[![test](https://github.com/winebarrel/cronplan/actions/workflows/test.yml/badge.svg)](https://github.com/winebarrel/cronplan/actions/workflows/test.yml)
+[![CI](https://github.com/winebarrel/cronplan/actions/workflows/ci.yml/badge.svg)](https://github.com/winebarrel/cronplan/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/winebarrel/cronplan.svg)](https://pkg.go.dev/github.com/winebarrel/cronplan)
 [![Go Report Card](https://goreportcard.com/badge/github.com/winebarrel/cronplan)](https://goreportcard.com/report/github.com/winebarrel/cronplan)
 
