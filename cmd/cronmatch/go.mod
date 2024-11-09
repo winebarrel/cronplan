@@ -1,0 +1,18 @@
+module github.com/winebarrel/cronplan/cmd/cronmatch
+
+go 1.23.0
+
+replace github.com/winebarrel/cronplan => ../..
+
+require (
+	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
+	github.com/fatih/color v1.18.0
+	github.com/mattn/go-isatty v0.0.20
+	github.com/winebarrel/cronplan v0.0.0-00010101000000-000000000000
+)
+
+require (
+	github.com/alecthomas/participle/v2 v2.1.1 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	golang.org/x/sys v0.25.0 // indirect
+)

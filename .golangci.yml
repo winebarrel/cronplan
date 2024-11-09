@@ -2,5 +2,6 @@ linters:
   enable:
     - gofmt
     - misspell
+    - gosimple
 run:
   timeout: 5m

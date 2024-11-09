@@ -3,10 +3,10 @@ all: vet test build
 
 .PHONY: build
 build:
-	go build ./cmd/cronplan
-	go build ./cmd/cronmatch
-	go build ./cmd/cronviz
-	go build ./cmd/crongrep
+	cd ./cmd/cronplan && go build -o ../../cronplan
+	cd ./cmd/cronmatch && go build -o ../../cronmatch
+	cd ./cmd/cronviz && go build -o ../../cronviz
+	cd ./cmd/crongrep && go build -o ../../crongrep
 
 .PHONY: vet
 vet:

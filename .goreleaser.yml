@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
     - go mod tidy
@@ -48,7 +49,7 @@ archives:
 brews:
   - name: cronplan
     ids: [cronplan]
-    tap:
+    repository:
       owner: winebarrel
       name: homebrew-cronplan
     homepage: https://github.com/winebarrel/cronplan
@@ -58,7 +59,7 @@ brews:
       bin.install 'cronplan'
   - name: cronmatch
     ids: [cronmatch]
-    tap:
+    repository:
       owner: winebarrel
       name: homebrew-cronplan
     homepage: https://github.com/winebarrel/cronplan
@@ -68,7 +69,7 @@ brews:
       bin.install 'cronmatch'
   - name: cronviz
     ids: [cronviz]
-    tap:
+    repository:
       owner: winebarrel
       name: homebrew-cronplan
     homepage: https://github.com/winebarrel/cronplan
@@ -78,7 +79,7 @@ brews:
       bin.install 'cronviz'
   - name: crongrep
     ids: [crongrep]
-    tap:
+    repository:
       owner: winebarrel
       name: homebrew-cronplan
     homepage: https://github.com/winebarrel/cronplan
