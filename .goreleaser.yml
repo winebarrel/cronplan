@@ -5,28 +5,28 @@ before:
 builds:
   - id: cronplan
     binary: cronplan
-    main: ./cmd/cronplan
+    dir: ./cmd/cronplan
     ldflags:
       - -X main.version={{.Version}}
     env:
       - CGO_ENABLED=0
   - id: cronmatch
     binary: cronmatch
-    main: ./cmd/cronmatch
+    dir: ./cmd/cronmatch
     ldflags:
       - -X main.version={{.Version}}
     env:
       - CGO_ENABLED=0
   - id: cronviz
     binary: cronviz
-    main: ./cmd/cronviz
+    dir: ./cmd/cronviz
     ldflags:
       - -X main.version={{.Version}}
     env:
       - CGO_ENABLED=0
   - id: crongrep
     binary: crongrep
-    main: ./cmd/crongrep
+    dir: ./cmd/crongrep
     ldflags:
       - -X main.version={{.Version}}
     env:
