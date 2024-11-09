@@ -224,7 +224,7 @@ func TestLastOfWeekToString(t *testing.T) {
 	assert := assert.New(t)
 
 	for w, s := range tt {
-		x := cronplan.LastDayOfWeek{wday(w)}
+		x := cronplan.LastDayOfWeek{Wday: wday(w)}
 		assert.Equal(s+"L", x.String())
 	}
 }
