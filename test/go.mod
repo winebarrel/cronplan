@@ -4,7 +4,7 @@ go 1.21
 
 toolchain go1.21.1
 
-replace github.com/winebarrel/cronplan => ..
+replace github.com/winebarrel/cronplan => ../
 
 require (
 	github.com/stretchr/testify v1.9.0
