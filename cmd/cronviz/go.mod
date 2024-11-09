@@ -1,6 +1,8 @@
 module github.com/winebarrel/cronplan/cmd/cronviz
 
-go 1.23.0
+go 1.21
+
+toolchain go1.21.1
 
 replace github.com/winebarrel/cronplan => ../..
 

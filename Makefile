@@ -18,7 +18,7 @@ lint:
 
 .PHONY: test
 test:
-	go test ./...
+	cd test && go test -v ./...
 
 .PHONY: clean
 clean:
