@@ -10,7 +10,7 @@ require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
 	github.com/fatih/color v1.18.0
 	github.com/mattn/go-isatty v0.0.20
-	github.com/winebarrel/cronplan v0.0.0-00010101000000-000000000000
+	github.com/winebarrel/cronplan v0.1.2
 )
 
 require (
