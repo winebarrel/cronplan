@@ -247,6 +247,45 @@ Wed, 11 Oct 2023 12:10:00
 Thu, 26 Oct 2023 12:10:00
 ```
 
+# cronskd CLI
+
+CLI to show a schedule of cron expressions.
+
+## Installation
+
+```
+brew install winebarrel/cronplan/cronskd
+```
+
+## Usage
+
+```
+Usage: cronskd [OPTION] [FILE]
+  -e string
+    	end date (default: end of day)
+  -s string
+    	start date (default: beginning of day)
+  -version
+    	print version and exit
+```
+
+```
+$ cat exprs.txt
+0 10 * * ? *
+15 12 * * ? *
+0 18 ? * MON-FRI *
+0 8 1 * ? *
+5 8-10 ? * MON-FRI *
+
+$ cronskd -s '2024-11-11' exprs.txt
+Mon, 11 Nov 2024 08:05:00    5 8-10 ? * MON-FRI *
+Mon, 11 Nov 2024 09:05:00    5 8-10 ? * MON-FRI *
+Mon, 11 Nov 2024 10:00:00    0 10 * * ? *
+Mon, 11 Nov 2024 10:05:00    5 8-10 ? * MON-FRI *
+Mon, 11 Nov 2024 12:15:00    15 12 * * ? *
+Mon, 11 Nov 2024 18:00:00    0 18 ? * MON-FRI *
+```
+
 ## Related Links
 
 * [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)

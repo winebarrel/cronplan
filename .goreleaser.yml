@@ -31,6 +31,13 @@ builds:
       - -X main.version={{.Version}}
     env:
       - CGO_ENABLED=0
+  - id: cronskd
+    binary: cronskd
+    dir: ./cmd/cronskd
+    ldflags:
+      - -X main.version={{.Version}}
+    env:
+      - CGO_ENABLED=0
 checksum:
   name_template: "checksums.txt"
 archives:
@@ -45,6 +52,9 @@ archives:
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
   - id: crongrep
     builds: [crongrep]
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+  - id: cronskd
+    builds: [cronskd]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
 brews:
   - name: cronplan
@@ -87,6 +97,16 @@ brews:
     license: MIT
     install: |
       bin.install 'crongrep'
+  - name: cronskd
+    ids: [cronskd]
+    repository:
+      owner: winebarrel
+      name: homebrew-cronplan
+    homepage: https://github.com/winebarrel/cronplan
+    description: cronskd is a tool to show a schedule of cron expressions.
+    license: MIT
+    install: |
+      bin.install 'cronskd'
 nfpms:
   - id: cronplan-nfpms
     builds: [cronplan]
@@ -126,7 +146,18 @@ nfpms:
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
-    description: crongrep is a tool to visualize cron schedule.
+    description: crongrep is a tool to grep with cron expression.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+  - id: cronskd-nfpms
+    builds: [cronskd]
+    file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
+    homepage: https://github.com/winebarrel/cronplan
+    maintainer: Genki Sugawara <sugawara@winebarrel.jp>
+    description: cronskd is a tool to show a schedule of cron expressions.
     license: MIT
     formats:
       - deb
