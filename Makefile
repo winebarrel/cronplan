@@ -7,6 +7,7 @@ build:
 	cd ./cmd/cronmatch && go build -o ../../cronmatch
 	cd ./cmd/cronviz && go build -o ../../cronviz
 	cd ./cmd/crongrep && go build -o ../../crongrep
+	cd ./cmd/cronskd && go build -o ../../cronskd
 
 .PHONY: vet
 vet:
@@ -26,3 +27,4 @@ clean:
 	rm -f cronmatch cronmatch.exe
 	rm -f cronviz cronviz.exe
 	rm -f crongrep crongrep.exe
+	rm -f cronskd cronskd.exe
