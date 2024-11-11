@@ -300,6 +300,6 @@ cf. https://pkg.go.dev/github.com/araddon/dateparse#readme-extended-example
 
 ## Related Links
 
-* [Cron expressions reference - Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html)
+* https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-scheduled-rule-pattern.html#eb-cron-expressions
 * https://github.com/winebarrel/terraform-provider-cronplan
 * [Cron Trigger Tutorial](http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html)
