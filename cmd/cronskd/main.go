@@ -70,6 +70,12 @@ func main() {
 
 		if flags.end == "" {
 			end = time.Date(start.Year(), start.Month(), start.Day(), 23, 59, 50, 0, start.Location())
+		} else {
+			end, err = dateparse.ParseAny(flags.end)
+
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 
 		nexts := cron.Between(start, end)
