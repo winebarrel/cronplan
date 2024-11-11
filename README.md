@@ -175,7 +175,7 @@ $ cronmatch '0 10 * * ? *' 'Oct 10, 2022, 10:10'
 '0 10 * * ? *' does not match 'Oct 10, 2022, 10:10'
 ```
 
-cf. https://github.com/araddon/dateparse
+cf. https://pkg.go.dev/github.com/araddon/dateparse#readme-extended-example
 
 # cronviz CLI
 
@@ -284,7 +284,19 @@ Mon, 11 Nov 2024 10:00:00    0 10 * * ? *
 Mon, 11 Nov 2024 10:05:00    5 8-10 ? * MON-FRI *
 Mon, 11 Nov 2024 12:15:00    15 12 * * ? *
 Mon, 11 Nov 2024 18:00:00    0 18 ? * MON-FRI *
+
+$ cronskd -s '2024/11/12 10:00' -e 'Nov 13, 2024, 12:00' ~/hoge
+Tue, 12 Nov 2024 10:00:00	0 10 * * ? *
+Tue, 12 Nov 2024 10:05:00	5 8-10 ? * MON-FRI *
+Tue, 12 Nov 2024 12:15:00	15 12 * * ? *
+Tue, 12 Nov 2024 18:00:00	0 18 ? * MON-FRI *
+Wed, 13 Nov 2024 08:05:00	5 8-10 ? * MON-FRI *
+Wed, 13 Nov 2024 09:05:00	5 8-10 ? * MON-FRI *
+Wed, 13 Nov 2024 10:00:00	0 10 * * ? *
+Wed, 13 Nov 2024 10:05:00	5 8-10 ? * MON-FRI *
 ```
+
+cf. https://pkg.go.dev/github.com/araddon/dateparse#readme-extended-example
 
 ## Related Links
 
