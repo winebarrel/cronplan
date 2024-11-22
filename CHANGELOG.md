@@ -1,8 +1,22 @@
 # Changelog
 
-## [Unreleased]
+## [1.10.4] - 2023-11-11
 
-N/A
+### Fixed
+
+* Fix cronskd `-e` option.
+
+## [1.10.3] - 2023-11-10
+
+### Added
+
+* Add cronskd command.
+
+## [1.10.2] - 2024-11-09
+
+### Changed
+
+* Remove unnecessary modules from go.mod.
 
 ## [1.10.1] - 2023-10-01
 
