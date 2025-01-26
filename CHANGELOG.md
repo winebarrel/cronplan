@@ -1,12 +1,19 @@
 # Changelog
 
-## [1.10.4] - 2023-11-11
+## [1.10.5] - 2025-01-26
+
+### Fixed
+
+* Fix error message. [pull#87](https://github.com/winebarrel/cronplan/pull/87)
+
+## [1.10.4] - 2024-11-11
 
 ### Fixed
 
 * Fix cronskd `-e` option.
 
-## [1.10.3] - 2023-11-10
+
+## [1.10.3] - 2024-11-10
 
 ### Added
 
