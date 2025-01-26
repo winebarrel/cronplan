@@ -200,7 +200,7 @@ func (v *DayOfMonth) Capture(values []string) error {
 	n, _ := strconv.Atoi(s)
 
 	if n < 1 || 31 < n {
-		return fmt.Errorf("hour must be 1-31 (value=%d)", n)
+		return fmt.Errorf("day-of-month must be 1-31 (value=%d)", n)
 	}
 
 	*v = DayOfMonth(n)
