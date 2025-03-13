@@ -9,5 +9,8 @@
   ],
   "ignoreDeps": [
     "github.com/winebarrel/cronplan"
-  ]
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": "true"
+  }
 }
