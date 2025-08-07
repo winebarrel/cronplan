@@ -2,7 +2,7 @@ module github.com/winebarrel/cronplan/cmd/crongrep
 
 go 1.21
 
-toolchain go1.24.5
+toolchain go1.24.6
 
 replace github.com/winebarrel/cronplan => ../..
 
