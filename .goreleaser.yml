@@ -42,21 +42,21 @@ checksum:
   name_template: "checksums.txt"
 archives:
   - id: cronplan
-    builds: [cronplan]
+    ids: [cronplan]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
   - id: cronmatch
-    builds: [cronmatch]
+    ids: [cronmatch]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
   - id: cronviz
-    builds: [cronviz]
+    ids: [cronviz]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
   - id: crongrep
-    builds: [crongrep]
+    ids: [crongrep]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
   - id: cronskd
-    builds: [cronskd]
+    ids: [cronskd]
     name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
-brews:
+homebrew_casks:
   - name: cronplan
     ids: [cronplan]
     repository:
@@ -65,8 +65,6 @@ brews:
     homepage: https://github.com/winebarrel/cronplan
     description: cronplan is a tool to show next triggers for AWS cron expression.
     license: MIT
-    install: |
-      bin.install 'cronplan'
   - name: cronmatch
     ids: [cronmatch]
     repository:
@@ -75,8 +73,6 @@ brews:
     homepage: https://github.com/winebarrel/cronplan
     description: cronmatch is a tool to check if datetime matches AWS cron expression.
     license: MIT
-    install: |
-      bin.install 'cronmatch'
   - name: cronviz
     ids: [cronviz]
     repository:
@@ -85,8 +81,6 @@ brews:
     homepage: https://github.com/winebarrel/cronplan
     description: cronviz is a tool to visualize cron schedule.
     license: MIT
-    install: |
-      bin.install 'cronviz'
   - name: crongrep
     ids: [crongrep]
     repository:
@@ -95,8 +89,6 @@ brews:
     homepage: https://github.com/winebarrel/cronplan
     description: crongrep is a tool to grep with cron expression.
     license: MIT
-    install: |
-      bin.install 'crongrep'
   - name: cronskd
     ids: [cronskd]
     repository:
@@ -105,11 +97,9 @@ brews:
     homepage: https://github.com/winebarrel/cronplan
     description: cronskd is a tool to show a schedule of cron expressions.
     license: MIT
-    install: |
-      bin.install 'cronskd'
 nfpms:
   - id: cronplan-nfpms
-    builds: [cronplan]
+    ids: [cronplan]
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
@@ -120,7 +110,7 @@ nfpms:
       - rpm
     bindir: /usr/bin
   - id: cronmatch-nfpms
-    builds: [cronmatch]
+    ids: [cronmatch]
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
@@ -131,7 +121,7 @@ nfpms:
       - rpm
     bindir: /usr/bin
   - id: cronviz-nfpms
-    builds: [cronviz]
+    ids: [cronviz]
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
@@ -142,7 +132,7 @@ nfpms:
       - rpm
     bindir: /usr/bin
   - id: crongrep-nfpms
-    builds: [crongrep]
+    ids: [crongrep]
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
@@ -153,7 +143,7 @@ nfpms:
       - rpm
     bindir: /usr/bin
   - id: cronskd-nfpms
-    builds: [cronskd]
+    ids: [cronskd]
     file_name_template: "{{ .Binary }}_{{ .Version }}_{{ .Arch }}"
     homepage: https://github.com/winebarrel/cronplan
     maintainer: Genki Sugawara <sugawara@winebarrel.jp>
