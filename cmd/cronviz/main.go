@@ -13,7 +13,7 @@ import (
 
 	"github.com/araddon/dateparse"
 	"github.com/k1LoW/duration"
-	"github.com/winebarrel/cronplan"
+	"github.com/winebarrel/cronplan/v2"
 )
 
 //go:embed timeline.html.tmpl

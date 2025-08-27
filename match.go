@@ -3,7 +3,7 @@ package cronplan
 import (
 	"time"
 
-	"github.com/winebarrel/cronplan/internal/util"
+	"github.com/winebarrel/cronplan/v2/internal/util"
 )
 
 // minute =====================================================================

@@ -10,7 +10,7 @@ import (
 
 	"github.com/alecthomas/participle/v2"
 	"github.com/alecthomas/participle/v2/lexer"
-	"github.com/winebarrel/cronplan/internal/util"
+	"github.com/winebarrel/cronplan/v2/internal/util"
 )
 
 var (
