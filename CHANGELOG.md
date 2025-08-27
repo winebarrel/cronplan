@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.2] - 2025-08-28
+
+### Fixed
+
+* Fix .goreleaser.yml for notarizing. [pull#111](https://github.com/winebarrel/cronplan/pull/111)
+
 ## [2.0.1] - 2025-08-27
 
 ### Fixed

@@ -65,6 +65,12 @@ homebrew_casks:
     homepage: https://github.com/winebarrel/cronplan
     description: cronplan is a tool to show next triggers for AWS cron expression.
     license: MIT
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/cronplan"]
+          end
   - name: cronmatch
     ids: [cronmatch]
     repository:
@@ -73,6 +79,12 @@ homebrew_casks:
     homepage: https://github.com/winebarrel/cronplan
     description: cronmatch is a tool to check if datetime matches AWS cron expression.
     license: MIT
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/cronmatch"]
+          end
   - name: cronviz
     ids: [cronviz]
     repository:
@@ -81,6 +93,12 @@ homebrew_casks:
     homepage: https://github.com/winebarrel/cronplan
     description: cronviz is a tool to visualize cron schedule.
     license: MIT
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/cronviz"]
+          end
   - name: crongrep
     ids: [crongrep]
     repository:
@@ -89,6 +107,12 @@ homebrew_casks:
     homepage: https://github.com/winebarrel/cronplan
     description: crongrep is a tool to grep with cron expression.
     license: MIT
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/crongrep"]
+          end
   - name: cronskd
     ids: [cronskd]
     repository:
@@ -97,6 +121,12 @@ homebrew_casks:
     homepage: https://github.com/winebarrel/cronplan
     description: cronskd is a tool to show a schedule of cron expressions.
     license: MIT
+    hooks:
+      post:
+        install: |
+          if OS.mac?
+            system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/cronskd"]
+          end
 nfpms:
   - id: cronplan-nfpms
     ids: [cronplan]
