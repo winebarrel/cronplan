@@ -68,7 +68,9 @@ func NearestWeekday(t2 time.Time, day int) int {
 		default:
 			return day
 		}
-	} else if day >= lom {
+	} else if day > lom {
+		return 0
+	} else if day == lom {
 		for i := 0; i <= 2; i++ {
 			prev := base.AddDate(0, 0, -i)
 

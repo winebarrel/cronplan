@@ -172,7 +172,13 @@ func TestMatchDayObMonth(t *testing.T) {
 				expected bool
 			}{
 				{time.Date(2023, 2, 28, 0, 0, 0, 0, time.UTC), false},
-				{time.Date(2024, 2, 29, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2024, 2, 29, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2025, 5, 31, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2025, 5, 30, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2025, 6, 30, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2026, 1, 30, 0, 0, 0, 0, time.UTC), true},
+				{time.Date(2026, 1, 31, 0, 0, 0, 0, time.UTC), false},
+				{time.Date(2027, 4, 30, 0, 0, 0, 0, time.UTC), false},
 			},
 		},
 		{
