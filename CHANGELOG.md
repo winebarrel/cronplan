@@ -10,13 +10,13 @@
 
 ### Fixed
 
-* Fix package. Add "v2". [pull#109](https://github.com/winebarrel/cronplan/pull/109)
+ BreFix package. Add "v2". [pull#109](https://github.com/winebarrel/cronplan/pull/109)
 
 ## [2.0.0] - 2025-08-27
 
 ### Fixed
 
-* Fix "31W" behavior. [pull#107](https://github.com/winebarrel/cronplan/pull/107)
+* **Breaking change**: Fix "31W" behavior. [pull#107](https://github.com/winebarrel/cronplan/pull/107)
 
 ## [1.10.5] - 2025-01-26
 
