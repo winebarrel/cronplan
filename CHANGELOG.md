@@ -10,7 +10,7 @@
 
 ### Fixed
 
- BreFix package. Add "v2". [pull#109](https://github.com/winebarrel/cronplan/pull/109)
+* Fix package. Add "v2". [pull#109](https://github.com/winebarrel/cronplan/pull/109)
 
 ## [2.0.0] - 2025-08-27
 
