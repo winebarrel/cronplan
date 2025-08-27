@@ -1,4 +1,4 @@
-module github.com/winebarrel/cronplan
+module github.com/winebarrel/cronplan/v2
 
 go 1.21
 

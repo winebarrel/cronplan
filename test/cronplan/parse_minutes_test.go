@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/winebarrel/cronplan"
+	"github.com/winebarrel/cronplan/v2"
 )
 
 func TestMinutesAll(t *testing.T) {

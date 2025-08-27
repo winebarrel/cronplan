@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/winebarrel/cronplan/internal/util"
+	"github.com/winebarrel/cronplan/v2/internal/util"
 )
 
 func TestCastWeekday(t *testing.T) {

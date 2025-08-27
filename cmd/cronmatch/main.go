@@ -9,7 +9,7 @@ import (
 
 	"github.com/araddon/dateparse"
 	"github.com/fatih/color"
-	"github.com/winebarrel/cronplan"
+	"github.com/winebarrel/cronplan/v2"
 )
 
 func init() {

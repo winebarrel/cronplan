@@ -1,14 +1,14 @@
-module github.com/winebarrel/cronplan/test
+module github.com/winebarrel/cronplan/v2/test
 
 go 1.21
 
 toolchain go1.21.1
 
-replace github.com/winebarrel/cronplan => ../
+replace github.com/winebarrel/cronplan/v2 => ../
 
 require (
 	github.com/stretchr/testify v1.9.0
-	github.com/winebarrel/cronplan v0.0.0-00010101000000-000000000000
+	github.com/winebarrel/cronplan/v2 v2.0.0-00010101000000-000000000000
 )
 
 require (

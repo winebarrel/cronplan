@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/araddon/dateparse"
-	"github.com/winebarrel/cronplan"
+	"github.com/winebarrel/cronplan/v2"
 )
 
 func init() {

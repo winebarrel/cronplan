@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/winebarrel/cronplan"
+	"github.com/winebarrel/cronplan/v2"
 )
 
 func main() {
