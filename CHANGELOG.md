@@ -16,7 +16,7 @@
 
 ### Fixed
 
-* Fix "31W" behavior. [pull#107](https://github.com/winebarrel/cronplan/pull/107)
+* **Breaking change**: Fix "31W" behavior. [pull#107](https://github.com/winebarrel/cronplan/pull/107)
 
 ## [1.10.5] - 2025-01-26
 
