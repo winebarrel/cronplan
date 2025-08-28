@@ -97,6 +97,39 @@ Sat, 28 Oct 2023 00:00:00
 Sat, 04 Nov 2023 00:00:00
 ```
 
+## Behavior of "31W" in day-of-month
+
+If you specify "31W" for day-of-month, months without a 31st day will be skipped.
+
+(I'm not sure if this is the correct behavior)
+
+```
+# cron(5 0 31W * ? 2026)
+Fri, 30 Jan 2026 00:05:00
+Tue, 31 Mar 2026 00:05:00
+Fri, 29 May 2026 00:05:00
+Fri, 31 Jul 2026 00:05:00
+Mon, 31 Aug 2026 00:05:00
+Fri, 30 Oct 2026 00:05:00
+Thu, 31 Dec 2026 00:05:00
+```
+
+If you want the last weekday of the month, use "LW".
+
+```
+# cron(5 0 LW * ? 2026)
+Fri, 30 Jan 2026 00:05:00
+Fri, 27 Feb 2026 00:05:00
+Tue, 31 Mar 2026 00:05:00
+Thu, 30 Apr 2026 00:05:00
+Fri, 29 May 2026 00:05:00
+Tue, 30 Jun 2026 00:05:00
+Fri, 31 Jul 2026 00:05:00
+Mon, 31 Aug 2026 00:05:00
+Wed, 30 Sep 2026 00:05:00
+Fri, 30 Oct 2026 00:05:00
+```
+
 # cronplan CLI
 
 CLI to show next triggers.
