@@ -1,8 +1,6 @@
 module github.com/winebarrel/cronplan/v2/test
 
-go 1.21
-
-toolchain go1.21.1
+go 1.22
 
 replace github.com/winebarrel/cronplan/v2 => ../
 
