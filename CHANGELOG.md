@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.0] - 2025-11-09
+
+### Added
+
+* Add `Iterator`. [pull#124](https://github.com/winebarrel/cronplan/pull/124)
+
 ## [2.0.2] - 2025-08-28
 
 ### Fixed
