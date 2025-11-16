@@ -1,6 +1,7 @@
 package cronplan
 
 import (
+	"iter"
 	"time"
 )
 
@@ -20,6 +21,20 @@ func (iter *Iterator) Next() time.Time {
 		iter.from = next.Add(1 * time.Minute)
 	}
 	return next
+}
+
+func (iter *Iterator) Seq() iter.Seq[time.Time] {
+	return func(yield func(time.Time) bool) {
+		for {
+			next := iter.Next()
+			if next.IsZero() {
+				break
+			}
+			if !yield(next) {
+				break
+			}
+		}
+	}
 }
 
 func (v *Expression) IterFrom(from time.Time) *Iterator {

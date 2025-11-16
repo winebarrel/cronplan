@@ -1,6 +1,6 @@
 module github.com/winebarrel/cronplan/v2/test
 
-go 1.22
+go 1.23
 
 replace github.com/winebarrel/cronplan/v2 => ../
 

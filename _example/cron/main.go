@@ -14,12 +14,10 @@ func cron(expr string, from time.Time, proc func()) (<-chan struct{}, error) {
 		return nil, err
 	}
 
-	iter := cron.IterFrom(from)
 	waiter := make(chan struct{})
 
 	go func() {
-		for iter.HasNext() {
-			next := iter.Next()
+		for next := range cron.IterFrom(from).Seq() {
 			<-time.After(time.Until(next))
 			go proc()
 		}
