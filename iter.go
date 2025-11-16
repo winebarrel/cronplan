@@ -9,6 +9,11 @@ type Iterator struct {
 	from time.Time
 }
 
+func (iter *Iterator) HasNext() bool {
+	next := iter.expr.Next(iter.from)
+	return !next.IsZero()
+}
+
 func (iter *Iterator) Next() time.Time {
 	next := iter.expr.Next(iter.from)
 	if !next.IsZero() {
@@ -22,6 +27,5 @@ func (v *Expression) IterFrom(from time.Time) *Iterator {
 		expr: v,
 		from: from,
 	}
-
 	return iter
 }

@@ -214,3 +214,41 @@ func TestIterFrom(t *testing.T) {
 		}
 	}
 }
+
+func TestIterHasNext(t *testing.T) {
+	assert := assert.New(t)
+
+	tt := []struct {
+		exp      string
+		from     time.Time
+		expected []bool
+	}{
+		{
+			exp:      "30 * * * ? *",
+			from:     time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC),
+			expected: []bool{true, true, true},
+		},
+		{
+			exp:      "35 9 17 DEC ? 2023",
+			from:     time.Date(2023, 12, 17, 9, 35, 0, 0, time.UTC),
+			expected: []bool{true, false, false},
+		},
+		{
+			exp:      "35 9 17 DEC ? 2023",
+			from:     time.Date(2023, 12, 17, 9, 36, 0, 0, time.UTC),
+			expected: []bool{false, false, false},
+		},
+	}
+
+	for _, test := range tt {
+		cron, err := cronplan.Parse(test.exp)
+		assert.NoError(err)
+		iter := cron.IterFrom(test.from)
+
+		for _, e := range test.expected {
+			next := iter.HasNext()
+			iter.Next()
+			assert.Equal(e, next, test)
+		}
+	}
+}
