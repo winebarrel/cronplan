@@ -4,8 +4,8 @@
 
 ### Added
 
-* Add `Iterator.HasNext()`. [pull#126](https://github.com/winebarrel/cronplan/pull/126)
-* Support range-over-func iterator. [pull#127](https://github.com/winebarrel/cronplan/pull/127)
+* Add `Iterator.HasNext()`. [pull#129](https://github.com/winebarrel/cronplan/pull/129)
+* Support range-over-func iterator. [pull#130](https://github.com/winebarrel/cronplan/pull/130)
 * Update go.mod Go version `>= 1.23`.
 
 ## [2.1.0] - 2025-11-09
