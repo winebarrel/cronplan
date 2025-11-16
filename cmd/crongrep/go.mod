@@ -1,6 +1,6 @@
 module github.com/winebarrel/cronplan/v2/cmd/crongrep
 
-go 1.21
+go 1.23
 
 toolchain go1.25.4
 
