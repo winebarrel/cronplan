@@ -37,7 +37,7 @@ func (iter *Iterator) Seq() iter.Seq[time.Time] {
 	}
 }
 
-func (v *Expression) IterFrom(from time.Time) *Iterator {
+func (v *Expression) Iter(from time.Time) *Iterator {
 	iter := &Iterator{
 		expr: v,
 		from: from,
