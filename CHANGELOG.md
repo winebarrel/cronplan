@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.2] - 2025-11-16
+
+### Changed
+
+* [breaking change] Rename `IterFrom()` to `Iter()`. [pull#132](https://github.com/winebarrel/cronplan/pull/132)
+
 ## [2.1.1] - 2025-11-16
 
 ### Added

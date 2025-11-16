@@ -17,7 +17,7 @@ func cron(expr string, from time.Time, proc func()) (<-chan struct{}, error) {
 	waiter := make(chan struct{})
 
 	go func() {
-		for next := range cron.IterFrom(from).Seq() {
+		for next := range cron.Iter(from).Seq() {
 			<-time.After(time.Until(next))
 			go proc()
 		}

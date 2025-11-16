@@ -39,12 +39,18 @@ func main() {
 	)
 	//=> [2022-11-03 10:00:00 +0000 UTC 2022-11-04 10:00:00 +0000 UTC]
 
-	iter := cron.IterFrom(time.Date(2022, 11, 3, 10, 0, 0, 0, time.UTC))
+	iter := cron.Iter(time.Date(2022, 11, 3, 10, 0, 0, 0, time.UTC))
 
 	for i := range 3 {
 		fmt.Println(i, iter.Next())
 		//=> 0 2022-11-03 10:00:00 +0000 UTC
 		//=> 1 2022-11-04 10:00:00 +0000 UTC
 		//=> 2 2022-11-05 10:00:00 +0000 UTC
+	}
+
+	for next := range iter.Seq() {
+		fmt.Println(next)
+		//=> 2022-11-03 10:00:00 +0000 UTC
+		break
 	}
 }

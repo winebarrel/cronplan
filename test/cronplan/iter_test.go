@@ -9,7 +9,7 @@ import (
 	"github.com/winebarrel/cronplan/v2"
 )
 
-func TestIterFrom(t *testing.T) {
+func TestIter(t *testing.T) {
 	assert := assert.New(t)
 
 	tt := []struct {
@@ -207,7 +207,7 @@ func TestIterFrom(t *testing.T) {
 	for _, test := range tt {
 		cron, err := cronplan.Parse(test.exp)
 		assert.NoError(err)
-		iter := cron.IterFrom(test.from)
+		iter := cron.Iter(test.from)
 
 		for _, e := range test.expected {
 			next := iter.Next()
@@ -244,7 +244,7 @@ func TestIterHasNext(t *testing.T) {
 	for _, test := range tt {
 		cron, err := cronplan.Parse(test.exp)
 		assert.NoError(err)
-		iter := cron.IterFrom(test.from)
+		iter := cron.Iter(test.from)
 
 		for _, e := range test.expected {
 			next := iter.HasNext()
@@ -447,7 +447,7 @@ func TestIterSeq(t *testing.T) {
 	for _, test := range tt {
 		cron, err := cronplan.Parse(test.exp)
 		assert.NoError(err)
-		iter := cron.IterFrom(test.from)
+		iter := cron.Iter(test.from)
 
 		i := 0
 
