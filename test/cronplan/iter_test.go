@@ -363,7 +363,7 @@ func TestIterSeq(t *testing.T) {
 		{
 			exp:      "35 9 17 DEC ? 2020",
 			from:     time.Date(2022, 10, 10, 0, 0, 0, 0, time.UTC),
-			expected: []time.Time{{}, {}, {}},
+			expected: []time.Time{},
 		},
 		{
 			exp:  "35 9 L DEC ? 2023",
