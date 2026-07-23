@@ -9,7 +9,7 @@ replace github.com/winebarrel/cronplan/v2 => ../..
 require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de
 	github.com/fatih/color v1.19.0
-	github.com/mattn/go-isatty v0.0.23
+	github.com/mattn/go-isatty v0.0.24
 	github.com/winebarrel/cronplan/v2 v2.0.0-00010101000000-000000000000
 )
 
