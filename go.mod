@@ -2,6 +2,6 @@ module github.com/winebarrel/cronplan/v2
 
 go 1.23
 
-toolchain go1.27.1
+toolchain go1.27.2
 
 require github.com/alecthomas/participle/v2 v2.1.4
