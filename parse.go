@@ -36,7 +36,7 @@ func (v *Minute) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to minute from %s", s)
+		return fmt.Errorf("cannot convert to minute from %s", s)
 	}
 
 	n, _ := strconv.Atoi(s)
@@ -115,7 +115,7 @@ func (v *Hour) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to hour from %s", s)
+		return fmt.Errorf("cannot convert to hour from %s", s)
 	}
 
 	n, _ := strconv.Atoi(s)
@@ -194,7 +194,7 @@ func (v *DayOfMonth) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to day-of-month from %s", s)
+		return fmt.Errorf("cannot convert to day-of-month from %s", s)
 	}
 
 	n, _ := strconv.Atoi(s)
@@ -232,7 +232,7 @@ func (v *NearestWeekday) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to nearest_weekday from %sW", s)
+		return fmt.Errorf("cannot convert to nearest_weekday from %sW", s)
 	}
 
 	n, _ := strconv.Atoi(s)
@@ -267,7 +267,7 @@ func (v *LastDayOfMonth) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to last_day-of-month from L-%s", s)
+		return fmt.Errorf("cannot convert to last_day-of-month from L-%s", s)
 	}
 
 	n, _ := strconv.Atoi(s)
@@ -580,7 +580,7 @@ func (v *Year) Capture(values []string) error {
 	r := regexp.MustCompile(`^\d+$`)
 
 	if !r.MatchString(s) {
-		return fmt.Errorf("connot convert to year from %s", s)
+		return fmt.Errorf("cannot convert to year from %s", s)
 	}
 
 	n, _ := strconv.Atoi(s)
