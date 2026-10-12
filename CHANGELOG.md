@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.1.3] - 2026-10-12
+
+### Fixed
+
+* Correct "connot" typo in parse error messages. [pull#168](https://github.com/winebarrel/cronplan/pull/168)
+
 ## [2.1.2] - 2025-11-16
 
 ### Changed
